@@ -24,7 +24,9 @@ namespace jQueryDataTable.Controllers
             var length = Request.Form.GetValues("length").FirstOrDefault();
             //Find Order Column
             var sortColumn = Request.Form.GetValues("columns[" + Request.Form.GetValues("order[0][column]").FirstOrDefault() + "][name]").FirstOrDefault();
+            sortColumn = sortColumn == "EventId" ? "ReportableEventId" : sortColumn;
             var sortColumnDir = Request.Form.GetValues("order[0][dir]").FirstOrDefault();
+            sortColumnDir = sortColumn == "ReportableEventId" ? "desc" : sortColumnDir;
             string search = Request.Form.GetValues("search[value]")[0];
 
             int pageSize = length != null ? Convert.ToInt32(length) : 0;
@@ -46,7 +48,6 @@ namespace jQueryDataTable.Controllers
                         from psn in per.DefaultIfEmpty()
                         join status in context.EventStatus on edt.EventStatusId equals status.EventStatusId into est
                         from estatus in est.DefaultIfEmpty()
-                        where re.IsInternalReview == false && re.SubmitToShip == false
                         where vd.VesselName.Contains(search) || ldata.LookupDataName.Contains(search)
                         || rc.CategoryName.Contains(search) || sev.EventSeverityName.Contains(search)
                         || estatus.EventStatus.Contains(search)
