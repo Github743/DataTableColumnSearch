@@ -68,6 +68,7 @@ namespace jQueryDataTable.Controllers
                         };
                 string vesselName = Request.Form.GetValues("columns[1][search][value]").FirstOrDefault().Trim();
                 string vesselType = Request.Form.GetValues("columns[2][search][value]").FirstOrDefault().Trim();
+                string eventType = Request.Form.GetValues("columns[3][search][value]").FirstOrDefault().Trim();
                 string eventDate = Request.Form.GetValues("columns[4][search][value]").FirstOrDefault().Trim();
 
                 if (!string.IsNullOrEmpty(vesselName))
@@ -77,6 +78,10 @@ namespace jQueryDataTable.Controllers
                 if (!string.IsNullOrEmpty(vesselType))
                 {
                     v = v.Where(a => a.VesselType.Contains(vesselType));
+                }
+                if (!string.IsNullOrEmpty(eventType))
+                {
+                    v = v.Where(a => a.EventType.Contains(eventType));
                 }
                 if (!string.IsNullOrEmpty(eventDate))
                 {
