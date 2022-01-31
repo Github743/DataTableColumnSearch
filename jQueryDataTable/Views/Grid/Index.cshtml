@@ -1,0 +1,57 @@
+﻿<style type="text/css">
+    .mvc-grid-filter.applied::before {
+        color: red;
+        /*font-size: 1.2em;*/
+    }
+</style>
+@Html.AjaxGrid(Url.Action("IndexGrid"))
+@section scripts{
+    <script type="text/javascript">
+        var JqueryUIDateFilter = (function (base) {
+            MvcGridExtends(JqueryUIDateFilter, base);
+
+            function JqueryUIDateFilter(column) {
+                base.call(this, column);
+
+                this.methods = ['equals', 'not-equals', 'later-than', 'earlier-than'];
+            }
+
+            JqueryUIDateFilter.prototype.bindValues = function () {
+                base.prototype.bindValues.call(this);
+
+                var $input = $('.mvc-grid-value', this.popup.element);
+                var $div = $input.parent();
+
+                var currDate = $input.val();
+                //console.log("currDate", currDate);
+                $div.datepicker({
+                    showOtherMonths: true,
+                    selectOtherMonths: true,
+                    dateFormat: "dd-mm-yy",
+                    changeMonth: true,
+                    changeYear: true,
+                    onSelect: function (dateText, instance) {
+                        //console.log("onSelect", dateText);
+                        $input.val(dateText);
+                        $input[0].dispatchEvent(new Event('input', { bubbles: true }));
+                    }
+                });
+                $div.datepicker('setDate', currDate);
+            };
+
+            return JqueryUIDateFilter;
+        })(MvcGridFilter);
+        $(document).ready(function () {
+            MvcGrid.prototype.lang['datepicker'] = MvcGrid.prototype.lang['date'];
+            var grid = document.querySelector('.mvc-grid');
+            new MvcGrid(grid, {
+                filters: { 'date': JqueryUIDateFilter }
+            });
+            document.addEventListener('reloadend', function (e) {
+                $(".table-hover tbody tr").each(function (i) {
+                    $(this).find("td").eq(0).find("a").html($(this).find("td").eq(0).find("a").text().replace(/^(\w+)/, '<strong>$1</strong>'));
+                });
+            });
+        });
+    </script>
+}

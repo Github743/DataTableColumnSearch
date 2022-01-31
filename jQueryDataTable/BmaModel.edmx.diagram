@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a3df377dbd9e4bc9875206df95290ba4" Name="Diagram1">
+        <EntityTypeShape EntityType="BMA_DEVModel.ApplicationLog" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.BirthDetail" Width="1.5" PointX="9.75" PointY="76.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.BirthDetailAttachment" Width="1.5" PointX="12" PointY="79.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.BorisVesselMapping" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.BorisVesselStatusMapping" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.BorisVesselSubTypeMapping" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.BreachOfSecurity" Width="1.5" PointX="9.75" PointY="85.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.BreachOfSecurityAttachment" Width="1.5" PointX="12" PointY="85.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.ContactDetail" Width="1.5" PointX="9.75" PointY="93.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.ContactDetailAttachment" Width="1.5" PointX="12" PointY="94.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.Country" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.CrewDetail" Width="1.5" PointX="12" PointY="138.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.DeathDetail" Width="1.5" PointX="9.75" PointY="99.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.DeathDetailAttachment" Width="1.5" PointX="12" PointY="100.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.Disease" Width="1.5" PointX="9.75" PointY="105" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.DiseaseAttachment" Width="1.5" PointX="12" PointY="105.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.EnvironmentalDetail" Width="1.5" PointX="9.75" PointY="109.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.EnvironmentAttachment" Width="1.5" PointX="12" PointY="109.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.ErrorLog" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.EventAction" Width="1.5" PointX="12.5" PointY="165" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.EventSeverity" Width="1.5" PointX="12.5" PointY="167.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.EventStatu" Width="1.5" PointX="12.5" PointY="170" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.InjuryDetail" Width="1.5" PointX="9.75" PointY="113.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.InjuryDetailAttachment" Width="1.5" PointX="12" PointY="113.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.LookupData" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.LookupType" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.Marpol" Width="1.5" PointX="9.75" PointY="117.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.MarpolAttachment" Width="1.5" PointX="12" PointY="118.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.MaterialDamage" Width="1.5" PointX="9.75" PointY="122.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.MaterialDamageAttachment" Width="1.5" PointX="12" PointY="122.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.NearMissReport" Width="1.5" PointX="5.25" PointY="127.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.NearMissReportAttachment" Width="1.5" PointX="7.5" PointY="136.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.ObjectDetail" Width="1.5" PointX="9.75" PointY="126.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.ObjectDetailAttachment" Width="1.5" PointX="12" PointY="126.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.OtherVesselAttachment" Width="1.5" PointX="12" PointY="130.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.OtherVesselDetail" Width="1.5" PointX="9.75" PointY="132.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.Passenger" Width="1.5" PointX="12" PointY="143.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.PersonalDetail" Width="1.5" PointX="9.75" PointY="145.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.PersonalDetailAttachment" Width="1.5" PointX="12" PointY="147.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.Personnel" Width="1.5" PointX="12.5" PointY="172.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.PersonnelActivation" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.PersonnelRole" Width="1.5" PointX="10.25" PointY="173.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.PersonsRescuedAtSea" Width="1.5" PointX="9.75" PointY="158.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.PersonsRescuedAtSeaAttachment" Width="1.5" PointX="12" PointY="156.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.ReportableAdminAttachment" Width="1.5" PointX="9.75" PointY="164.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.ReportableCategory" Width="1.5" PointX="0.75" PointY="71" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.ReportableEvent" Width="1.5" PointX="7.5" PointY="128" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.ReportableEventCorrespondence" Width="1.5" PointX="9.75" PointY="168.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.ReportableEventDetail" Width="1.5" PointX="14.75" PointY="127.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.ReportableEventDetailHistory" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.ReportableSubCategory" Width="1.5" PointX="3" PointY="189.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.ReportableSubSubCategory" Width="1.5" PointX="5.25" PointY="189.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.RescuedPersonDetail" Width="1.5" PointX="12" PointY="160.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.StowawayDetail" Width="1.5" PointX="12" PointY="89.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.ThirdParty" Width="1.5" PointX="12" PointY="151.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.VesselDetail" Width="1.5" PointX="9.75" PointY="179.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.VesselInvolved" Width="1.5" PointX="12" PointY="134.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.VesselMissing" Width="1.5" PointX="9.75" PointY="190" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.VesselMissingAttachment" Width="1.5" PointX="12" PointY="190.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMA_DEVModel.BorisCompanyMapping" Width="1.5" PointX="4.75" PointY="9.75" IsExpanded="true" />
+        <AssociationConnector Association="BMA_DEVModel.fk_BirthDetail_ReportableEventId" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_BirthDetailAttachment_BirthDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_BreachOfSecurity_ReportableEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_BreachOfSecurityAttachment_BreachOfSecurity" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.fk_StowawaysDetail_ReportableEventId" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.fk_ContactDetail_ReportableEventId" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_ContactDetailAttachment_ContactDetailAttachment" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_CrewDetail_PeronalDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_DeathDetail_ReportableEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_DeathDetailAttachment_DeathDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_Disease_ReportableEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_DiseaseAttachment_Disease" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_EnvironmentalDetail_ReportableEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_EnvironmentAttachment_EnvironmentalDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_ReportableEventDetail_EventAction" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_ReportableEventDetail_EventSeverity" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_ReportableEventDetail_EventStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_InjuryDetail_ReportableEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_InjuryDetailAttachment_InjuryDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_LookupData_LookupType" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_Marpol_ReportableEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_MarpolAttachment_Marpol" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_MaterialDamage_ReportableEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_MaterialDamageAttachment_MaterialDamage" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_NearMissReport_ReportableCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_NearMissReport_ReportableSubCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_NearMissReportAttachment_NearMissReport" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_ObjectDetail_ReportableEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_ObjectDetailAttachment_ObjectDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_OtherVesselAttachment_OtherVesselDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_OtherVesselDetail_ReportableEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_VesselInvolved_OtherVesselDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_Passenger_PeronalDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_PeronalDetail_ReportableEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_PeronalDetailAttachment_PeronalDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_ThirdParty_PeronalDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_Personnel_PersonnelRole" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_ReportableEventDetail_Personnel" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_PersonsRescuedAtSea_ReportableEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_PersonsRescuedAtSeaAttachment_PersonsRescuedAtSea" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_RescuedPersonDetail_PersonsRescuedAtSea" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_ReportableAdminAttachment_ReportableEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_ReportableEvent_ReportableCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_ReportableSubCategory_ReportableCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_ReportableEvent_ReportableSubCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_ReportableEvent_ReportableSubSubCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_ReportableEventDetail_ReportableEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_ReportableEventRemark_ReportableEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_VesselDetail_ReportableEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_VesselMissing_ReportableEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_ReportableSubSubCategory_ReportableSubCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="BMA_DEVModel.FK_VesselMissingAttachment_VesselMissing" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BMA_DEVModel.ActionTaken" Width="1.5" PointX="9.75" PointY="72.25" />
+        <EntityTypeShape EntityType="BMA_DEVModel.ActionTakenAttachment" Width="1.5" PointX="12" PointY="72.25" />
+        <AssociationConnector Association="BMA_DEVModel.FK_ActionTaken_ReportableEvent" />
+        <AssociationConnector Association="BMA_DEVModel.FK_ActionTakenAttachment_ActionTaken" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

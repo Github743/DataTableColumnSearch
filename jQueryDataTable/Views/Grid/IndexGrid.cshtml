@@ -1,0 +1,35 @@
+﻿@using jQueryDataTable.Models;
+@model IEnumerable<ReportableEventGrid>
+
+
+@(Html
+    .Grid(Model)
+    .Build(columns =>
+    {
+        columns.Add(model => model.Event).Titled("Event Id").Encoded(false).
+        RenderedAs(model => "<a href=" + Url.Action("ReportableEventDetail", "EventReport", new { @ReportableEventId = model.ReportableEventId }) + ">" + model.Event + "</a>")
+        .Filterable(false).Sortable(false);
+        columns.Add(model => model.VesselName).Titled("Vessel Name");
+        columns.Add(model => model.VesselType).Titled("Vessel Type");
+
+        columns.Add(model => model.EventType).Titled("Event Type");
+        columns.Add(model => model.EventDate).Titled("Event date").Formatted("{0:d}");
+        columns.Add(model => model.Severity).Titled("Severity");
+    })
+    .Pageable(pager =>
+    {
+        pager.PagesToDisplay = 10;
+        pager.RowsPerPage = 10;
+    })
+    .Filterable()
+    .Sortable()
+    .UsingProcessingMode(GridProcessingMode.Manual)
+    .Css("table-responsive")
+    .Pageable(pager =>
+    {
+        pager.TotalRows = ViewBag.TotalRows;
+        pager.ShowPageSizes = true;
+        pager.PageSizes.Clear();
+        pager.RowsPerPage = 10;
+    })
+)

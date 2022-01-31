@@ -1,0 +1,2069 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BMA_DEVModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ApplicationLog">
+    <Key>
+      <PropertyRef Name="ApplicationLogId" />
+    </Key>
+    <Property Name="ApplicationLogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Event" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="EventDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="BirthDetail">
+    <Key>
+      <PropertyRef Name="BirthDetailId" />
+    </Key>
+    <Property Name="BirthDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportableEventId" Type="Int32" Nullable="false" />
+    <Property Name="NewBornName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NewBornGender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OtherGender" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NewBornDateofBirth" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NewBornBirthTime" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NewBornBirthTimeZone" Type="Int32" Nullable="false" />
+    <Property Name="NewBornWeight" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="MotherName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MotherAge" Type="Int32" Nullable="false" />
+    <Property Name="MotherNationalityId" Type="Int32" Nullable="false" />
+    <Property Name="MotherPassportNumer" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MotherOccupation" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MotherUsualAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FatherName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FatherAge" Type="Int32" Nullable="false" />
+    <Property Name="FatherNationalityId" Type="Int32" Nullable="false" />
+    <Property Name="FatherPassportNumer" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FatherOccupation" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FatherUsualAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MotherSignature" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FatherSignature" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OfficialLogBookEntry" Type="Boolean" Nullable="false" />
+    <Property Name="DoctorReport" Type="Boolean" Nullable="false" />
+    <Property Name="CopyofMotherPassport" Type="Boolean" Nullable="false" />
+    <Property Name="CopyofFatherPassport" Type="Boolean" Nullable="false" />
+    <Property Name="SignatureByMaster" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DateSigned" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ReportableEvent" Relationship="Self.fk_BirthDetail_ReportableEventId" FromRole="BirthDetail" ToRole="ReportableEvent" />
+    <NavigationProperty Name="BirthDetailAttachments" Relationship="Self.FK_BirthDetailAttachment_BirthDetail" FromRole="BirthDetail" ToRole="BirthDetailAttachment" />
+  </EntityType>
+  <EntityType Name="BirthDetailAttachment">
+    <Key>
+      <PropertyRef Name="BirthDetailAttachmentId" />
+    </Key>
+    <Property Name="BirthDetailAttachmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BirthDetailId" Type="Int32" Nullable="false" />
+    <Property Name="AttachmentName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="BirthDetail" Relationship="Self.FK_BirthDetailAttachment_BirthDetail" FromRole="BirthDetailAttachment" ToRole="BirthDetail" />
+  </EntityType>
+  <EntityType Name="BorisVesselMapping">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="imo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="subtypeid" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="companyid" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="statusid" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="anniversary" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="officialno" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="dpaname" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="dpaemail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="dpatelephone" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="dpafax" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ispscontactid" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="csoname" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="csotel" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="csofax" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="csoemail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="url" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="surveyurl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="callsign" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="yearofbuild" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="lengthofvessel" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="hullmaterial" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="nettonnage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="grosstonnage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="mouldeddepth" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="breadth" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="wherebuilt" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="mmsinumber" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="vesselage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="BorisVesselStatusMapping">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BorisVesselSubTypeMapping">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BreachOfSecurity">
+    <Key>
+      <PropertyRef Name="BreachOfSecurityId" />
+    </Key>
+    <Property Name="BreachOfSecurityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportableEventId" Type="Int32" Nullable="false" />
+    <Property Name="BoardingType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LocationorAttemptedBoarding" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="OwnVesselSpeed" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="VesselFreeBoard" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="NoOfPiratesArmed" Type="Int32" />
+    <Property Name="TypeofWeaponsObserved" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="TypeOfWeaponsUsed" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IndividualApprehended" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LocalAuthoritiesInvolved" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="AgencyContactDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MethodOfBoarding" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="NoOfPerson" Type="Int32" />
+    <Property Name="HidingPlaceOfStowaways" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EmbarkationDate" Type="DateTime" Precision="3" />
+    <Property Name="ExpectedPortOfDisembarkation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DisembarkationExpectedDate" Type="DateTime" Precision="3" />
+    <Property Name="NumberOfFatalities" Type="Int32" />
+    <Property Name="StowawaysRequestingPoliticalAsylum" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="StowayMethodOfBoarding" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="FieldName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="UnAuthorizedIndividualApprehended" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="UnAuthorizedLocalAuthoritiesInvolved" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="UnAuthorizedAgencyContactDetails" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UnAuthorizedMethodofBoarding" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ReportableEvent" Relationship="Self.FK_BreachOfSecurity_ReportableEvent" FromRole="BreachOfSecurity" ToRole="ReportableEvent" />
+    <NavigationProperty Name="BreachOfSecurityAttachments" Relationship="Self.FK_BreachOfSecurityAttachment_BreachOfSecurity" FromRole="BreachOfSecurity" ToRole="BreachOfSecurityAttachment" />
+    <NavigationProperty Name="StowawayDetails" Relationship="Self.fk_StowawaysDetail_ReportableEventId" FromRole="BreachOfSecurity" ToRole="StowawayDetail" />
+  </EntityType>
+  <EntityType Name="BreachOfSecurityAttachment">
+    <Key>
+      <PropertyRef Name="BreachOfSecurityAttachmentId" />
+    </Key>
+    <Property Name="BreachOfSecurityAttachmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BreachOfSecurityId" Type="Int32" Nullable="false" />
+    <Property Name="AttachmentName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="BreachOfSecurity" Relationship="Self.FK_BreachOfSecurityAttachment_BreachOfSecurity" FromRole="BreachOfSecurityAttachment" ToRole="BreachOfSecurity" />
+  </EntityType>
+  <EntityType Name="ContactDetail">
+    <Key>
+      <PropertyRef Name="ContactDetailId" />
+    </Key>
+    <Property Name="ContactDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportableEventId" Type="Int32" Nullable="false" />
+    <Property Name="PersonName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PersonRole" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PersonDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PersonEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DPAName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DPAEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DPAPhoneNumber" Type="Int64" Nullable="false" />
+    <Property Name="MasterName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MasterPhoneNumber" Type="Int64" Nullable="false" />
+    <Property Name="MasterEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ReportableEvent" Relationship="Self.fk_ContactDetail_ReportableEventId" FromRole="ContactDetail" ToRole="ReportableEvent" />
+    <NavigationProperty Name="ContactDetailAttachments" Relationship="Self.FK_ContactDetailAttachment_ContactDetailAttachment" FromRole="ContactDetail" ToRole="ContactDetailAttachment" />
+  </EntityType>
+  <EntityType Name="ContactDetailAttachment">
+    <Key>
+      <PropertyRef Name="ContactDetailAttachmentId" />
+    </Key>
+    <Property Name="ContactDetailAttachmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ContactDetailId" Type="Int32" Nullable="false" />
+    <Property Name="AttachmentName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ContactDetail" Relationship="Self.FK_ContactDetailAttachment_ContactDetailAttachment" FromRole="ContactDetailAttachment" ToRole="ContactDetail" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="CrewDetail">
+    <Key>
+      <PropertyRef Name="CrewId" />
+    </Key>
+    <Property Name="CrewId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonalDetailId" Type="Int32" Nullable="false" />
+    <Property Name="CrewName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CrewGender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CrewGenderOther" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CrewNationalityId" Type="Int32" Nullable="false" />
+    <Property Name="CrewAge" Type="Int32" Nullable="false" />
+    <Property Name="CrewPassPortNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CrewRoleOnBoard" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CrewOnDuty" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CrewHourOfWork" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CrewHourOfRest" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <NavigationProperty Name="PersonalDetail" Relationship="Self.FK_CrewDetail_PeronalDetail" FromRole="CrewDetail" ToRole="PersonalDetail" />
+  </EntityType>
+  <EntityType Name="DeathDetail">
+    <Key>
+      <PropertyRef Name="DeathId" />
+    </Key>
+    <Property Name="DeathId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportableEventId" Type="Int32" Nullable="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MaritalStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DiseasedPlace" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CauseOfDeath" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeathCertifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AnyUnderlyingConds" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UnderlyingReason" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NokName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NokPhoneNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NokAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RelationShipId" Type="Int32" />
+    <Property Name="OtherRelation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ReportableEvent" Relationship="Self.FK_DeathDetail_ReportableEvent" FromRole="DeathDetail" ToRole="ReportableEvent" />
+    <NavigationProperty Name="DeathDetailAttachments" Relationship="Self.FK_DeathDetailAttachment_DeathDetail" FromRole="DeathDetail" ToRole="DeathDetailAttachment" />
+  </EntityType>
+  <EntityType Name="DeathDetailAttachment">
+    <Key>
+      <PropertyRef Name="DeathDetailAttachmentId" />
+    </Key>
+    <Property Name="DeathDetailAttachmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeathId" Type="Int32" Nullable="false" />
+    <Property Name="AttachmentName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="DeathDetail" Relationship="Self.FK_DeathDetailAttachment_DeathDetail" FromRole="DeathDetailAttachment" ToRole="DeathDetail" />
+  </EntityType>
+  <EntityType Name="Disease">
+    <Key>
+      <PropertyRef Name="DiseaseId" />
+    </Key>
+    <Property Name="DiseaseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportableEventId" Type="Int32" Nullable="false" />
+    <Property Name="DiagnosedName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DiagnosedPosition" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DiagnosedAuthority" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ReportableEvent" Relationship="Self.FK_Disease_ReportableEvent" FromRole="Disease" ToRole="ReportableEvent" />
+    <NavigationProperty Name="DiseaseAttachments" Relationship="Self.FK_DiseaseAttachment_Disease" FromRole="Disease" ToRole="DiseaseAttachment" />
+  </EntityType>
+  <EntityType Name="DiseaseAttachment">
+    <Key>
+      <PropertyRef Name="DiseaseAttachmentId" />
+    </Key>
+    <Property Name="DiseaseAttachmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DiseaseId" Type="Int32" Nullable="false" />
+    <Property Name="AttachmentName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Disease" Relationship="Self.FK_DiseaseAttachment_Disease" FromRole="DiseaseAttachment" ToRole="Disease" />
+  </EntityType>
+  <EntityType Name="EnvironmentalDetail">
+    <Key>
+      <PropertyRef Name="EnvironmentalDetailId" />
+    </Key>
+    <Property Name="EnvironmentalDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportableEventId" Type="Int32" Nullable="false" />
+    <Property Name="WeatherId" Type="Int32" Nullable="false" />
+    <Property Name="VisibilityId" Type="Int32" Nullable="false" />
+    <Property Name="LightId" Type="Int32" Nullable="false" />
+    <Property Name="WindSpeedId" Type="Int32" Nullable="false" />
+    <Property Name="WindDirection" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ReportableEvent" Relationship="Self.FK_EnvironmentalDetail_ReportableEvent" FromRole="EnvironmentalDetail" ToRole="ReportableEvent" />
+    <NavigationProperty Name="EnvironmentAttachments" Relationship="Self.FK_EnvironmentAttachment_EnvironmentalDetail" FromRole="EnvironmentalDetail" ToRole="EnvironmentAttachment" />
+  </EntityType>
+  <EntityType Name="EnvironmentAttachment">
+    <Key>
+      <PropertyRef Name="EnvironmentAttachmentId" />
+    </Key>
+    <Property Name="EnvironmentAttachmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EnvironmentalDetailId" Type="Int32" Nullable="false" />
+    <Property Name="AttachmentName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="EnvironmentalDetail" Relationship="Self.FK_EnvironmentAttachment_EnvironmentalDetail" FromRole="EnvironmentAttachment" ToRole="EnvironmentalDetail" />
+  </EntityType>
+  <EntityType Name="ErrorLog">
+    <Key>
+      <PropertyRef Name="ErrorLogId" />
+    </Key>
+    <Property Name="ErrorLogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExceptionMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExceptionStackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="EventAction">
+    <Key>
+      <PropertyRef Name="EventActionId" />
+    </Key>
+    <Property Name="EventActionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EventActionName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <NavigationProperty Name="ReportableEventDetails" Relationship="Self.FK_ReportableEventDetail_EventAction" FromRole="EventAction" ToRole="ReportableEventDetail" />
+  </EntityType>
+  <EntityType Name="EventSeverity">
+    <Key>
+      <PropertyRef Name="EventSeverityId" />
+    </Key>
+    <Property Name="EventSeverityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EventSeverityName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <NavigationProperty Name="ReportableEventDetails" Relationship="Self.FK_ReportableEventDetail_EventSeverity" FromRole="EventSeverity" ToRole="ReportableEventDetail" />
+  </EntityType>
+  <EntityType Name="EventStatu">
+    <Key>
+      <PropertyRef Name="EventStatusId" />
+    </Key>
+    <Property Name="EventStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EventStatus" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsNearMiss" Type="Boolean" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <NavigationProperty Name="ReportableEventDetails" Relationship="Self.FK_ReportableEventDetail_EventStatus" FromRole="EventStatus" ToRole="ReportableEventDetail" />
+  </EntityType>
+  <EntityType Name="InjuryDetail">
+    <Key>
+      <PropertyRef Name="InjuryDetailId" />
+    </Key>
+    <Property Name="InjuryDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportableEventId" Type="Int32" Nullable="false" />
+    <Property Name="BodilyLocationofInjuryId" Type="Int32" Nullable="false" />
+    <Property Name="InjuryTypeId" Type="Int32" Nullable="false" />
+    <Property Name="FinalOutcomeId" Type="Int32" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ReportableEvent" Relationship="Self.FK_InjuryDetail_ReportableEvent" FromRole="InjuryDetail" ToRole="ReportableEvent" />
+    <NavigationProperty Name="InjuryDetailAttachments" Relationship="Self.FK_InjuryDetailAttachment_InjuryDetail" FromRole="InjuryDetail" ToRole="InjuryDetailAttachment" />
+  </EntityType>
+  <EntityType Name="InjuryDetailAttachment">
+    <Key>
+      <PropertyRef Name="InjuryDetailAttachmentId" />
+    </Key>
+    <Property Name="InjuryDetailAttachmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InjuryDetailId" Type="Int32" Nullable="false" />
+    <Property Name="AttachmentName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="InjuryDetail" Relationship="Self.FK_InjuryDetailAttachment_InjuryDetail" FromRole="InjuryDetailAttachment" ToRole="InjuryDetail" />
+  </EntityType>
+  <EntityType Name="LookupData">
+    <Key>
+      <PropertyRef Name="LookupDataId" />
+    </Key>
+    <Property Name="LookupDataId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LookupDataName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LookupTypeId" Type="Int32" />
+    <Property Name="IsSuppressed" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="LookupType" Relationship="Self.FK_LookupData_LookupType" FromRole="LookupData" ToRole="LookupType" />
+  </EntityType>
+  <EntityType Name="LookupType">
+    <Key>
+      <PropertyRef Name="LookupTypeId" />
+    </Key>
+    <Property Name="LookupTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LookupTypeName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDt" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="LookupDatas" Relationship="Self.FK_LookupData_LookupType" FromRole="LookupType" ToRole="LookupData" />
+  </EntityType>
+  <EntityType Name="Marpol">
+    <Key>
+      <PropertyRef Name="MarpolId" />
+    </Key>
+    <Property Name="MarpolId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportableEventId" Type="Int32" Nullable="false" />
+    <Property Name="PollutionSource" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Pollutant" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="QuantityOfPollutantToEnvironment" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="QuantityContainedonBoard" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="QuantityRecovered" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsWithInBahmas" Type="Boolean" />
+    <Property Name="IsCoastalStateInformed" Type="Boolean" Nullable="false" />
+    <Property Name="IsWithinSpecialArea" Type="Boolean" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ReportableEvent" Relationship="Self.FK_Marpol_ReportableEvent" FromRole="Marpol" ToRole="ReportableEvent" />
+    <NavigationProperty Name="MarpolAttachments" Relationship="Self.FK_MarpolAttachment_Marpol" FromRole="Marpol" ToRole="MarpolAttachment" />
+  </EntityType>
+  <EntityType Name="MarpolAttachment">
+    <Key>
+      <PropertyRef Name="MarpolAttachmentId" />
+    </Key>
+    <Property Name="MarpolAttachmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MarpolId" Type="Int32" Nullable="false" />
+    <Property Name="AttachmentName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Marpol" Relationship="Self.FK_MarpolAttachment_Marpol" FromRole="MarpolAttachment" ToRole="Marpol" />
+  </EntityType>
+  <EntityType Name="MaterialDamage">
+    <Key>
+      <PropertyRef Name="MaterialDamageId" />
+    </Key>
+    <Property Name="MaterialDamageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportableEventId" Type="Int32" Nullable="false" />
+    <Property Name="ExtentOfDamage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ReportableEvent" Relationship="Self.FK_MaterialDamage_ReportableEvent" FromRole="MaterialDamage" ToRole="ReportableEvent" />
+    <NavigationProperty Name="MaterialDamageAttachments" Relationship="Self.FK_MaterialDamageAttachment_MaterialDamage" FromRole="MaterialDamage" ToRole="MaterialDamageAttachment" />
+  </EntityType>
+  <EntityType Name="MaterialDamageAttachment">
+    <Key>
+      <PropertyRef Name="MaterialDamageAttachmentId" />
+    </Key>
+    <Property Name="MaterialDamageAttachmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaterialDamageId" Type="Int32" Nullable="false" />
+    <Property Name="AttachmentName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="MaterialDamage" Relationship="Self.FK_MaterialDamageAttachment_MaterialDamage" FromRole="MaterialDamageAttachment" ToRole="MaterialDamage" />
+  </EntityType>
+  <EntityType Name="NearMissReport">
+    <Key>
+      <PropertyRef Name="NearMissReportId" />
+    </Key>
+    <Property Name="NearMissReportId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateofOccurrence" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VesselTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Othervesseltype" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NearMissPotentialEventId" Type="Int32" Nullable="false" />
+    <Property Name="NearMissPotentialEventSubcategoryId" Type="Int32" />
+    <Property Name="OtherNearMissSubCategory" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PotentialSeverityId" Type="Int32" Nullable="false" />
+    <Property Name="IsUnsafeAct" Type="Boolean" Nullable="false" />
+    <Property Name="IsUnsafeConditionofArea" Type="Boolean" Nullable="false" />
+    <Property Name="IsUnsafeConditionofEquipment" Type="Boolean" Nullable="false" />
+    <Property Name="IsUnsafeUseofEquipment" Type="Boolean" Nullable="false" />
+    <Property Name="IsOther" Type="Boolean" Nullable="false" />
+    <Property Name="OtherText" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="BriefDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CasualFactorsIdentified" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ActionTaken" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReportAsAnonymous" Type="Boolean" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="RoleOnBoard" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="EmailId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="VesselName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IMONumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AssigneeId" Type="Int32" />
+    <Property Name="EventStatusId" Type="Int32" />
+    <Property Name="ReviewerComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ReportableCategory" Relationship="Self.FK_NearMissReport_ReportableCategory" FromRole="NearMissReport" ToRole="ReportableCategory" />
+    <NavigationProperty Name="ReportableSubCategory" Relationship="Self.FK_NearMissReport_ReportableSubCategory" FromRole="NearMissReport" ToRole="ReportableSubCategory" />
+    <NavigationProperty Name="NearMissReportAttachments" Relationship="Self.FK_NearMissReportAttachment_NearMissReport" FromRole="NearMissReport" ToRole="NearMissReportAttachment" />
+  </EntityType>
+  <EntityType Name="NearMissReportAttachment">
+    <Key>
+      <PropertyRef Name="NearMissReportAttachmentId" />
+    </Key>
+    <Property Name="NearMissReportAttachmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NearMissReportId" Type="Int32" Nullable="false" />
+    <Property Name="AttachmentName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="NearMissReport" Relationship="Self.FK_NearMissReportAttachment_NearMissReport" FromRole="NearMissReportAttachment" ToRole="NearMissReport" />
+  </EntityType>
+  <EntityType Name="ObjectDetail">
+    <Key>
+      <PropertyRef Name="ObjectDetailId" />
+    </Key>
+    <Property Name="ObjectDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportableEventId" Type="Int32" Nullable="false" />
+    <Property Name="DetailsofObject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ReportableEvent" Relationship="Self.FK_ObjectDetail_ReportableEvent" FromRole="ObjectDetail" ToRole="ReportableEvent" />
+    <NavigationProperty Name="ObjectDetailAttachments" Relationship="Self.FK_ObjectDetailAttachment_ObjectDetail" FromRole="ObjectDetail" ToRole="ObjectDetailAttachment" />
+  </EntityType>
+  <EntityType Name="ObjectDetailAttachment">
+    <Key>
+      <PropertyRef Name="ObjectDetailAttachmentId" />
+    </Key>
+    <Property Name="ObjectDetailAttachmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ObjectDetailId" Type="Int32" Nullable="false" />
+    <Property Name="AttachmentName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ObjectDetail" Relationship="Self.FK_ObjectDetailAttachment_ObjectDetail" FromRole="ObjectDetailAttachment" ToRole="ObjectDetail" />
+  </EntityType>
+  <EntityType Name="OtherVesselAttachment">
+    <Key>
+      <PropertyRef Name="OtherVesselAttachmentId" />
+    </Key>
+    <Property Name="OtherVesselAttachmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OtherVesselDetailId" Type="Int32" Nullable="false" />
+    <Property Name="AttachmentName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="OtherVesselDetail" Relationship="Self.FK_OtherVesselAttachment_OtherVesselDetail" FromRole="OtherVesselAttachment" ToRole="OtherVesselDetail" />
+  </EntityType>
+  <EntityType Name="OtherVesselDetail">
+    <Key>
+      <PropertyRef Name="OtherVesselDetailId" />
+    </Key>
+    <Property Name="OtherVesselDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportableEventId" Type="Int32" Nullable="false" />
+    <Property Name="NumberOfVesselsInvolved" Type="Int32" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="OtherVesselAttachments" Relationship="Self.FK_OtherVesselAttachment_OtherVesselDetail" FromRole="OtherVesselDetail" ToRole="OtherVesselAttachment" />
+    <NavigationProperty Name="ReportableEvent" Relationship="Self.FK_OtherVesselDetail_ReportableEvent" FromRole="OtherVesselDetail" ToRole="ReportableEvent" />
+    <NavigationProperty Name="VesselInvolveds" Relationship="Self.FK_VesselInvolved_OtherVesselDetail" FromRole="OtherVesselDetail" ToRole="VesselInvolved" />
+  </EntityType>
+  <EntityType Name="Passenger">
+    <Key>
+      <PropertyRef Name="PassengerId" />
+    </Key>
+    <Property Name="PassengerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonalDetailId" Type="Int32" Nullable="false" />
+    <Property Name="PassengerName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PassengerGender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PassengerGenderOther" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PassengerNationalityId" Type="Int32" Nullable="false" />
+    <Property Name="PassengerAge" Type="Int32" Nullable="false" />
+    <Property Name="PassengerPassPortNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <NavigationProperty Name="PersonalDetail" Relationship="Self.FK_Passenger_PeronalDetail" FromRole="Passenger" ToRole="PersonalDetail" />
+  </EntityType>
+  <EntityType Name="PersonalDetail">
+    <Key>
+      <PropertyRef Name="PersonalDetailId" />
+    </Key>
+    <Property Name="PersonalDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportableEventId" Type="Int32" Nullable="false" />
+    <Property Name="IsCrewInvolved" Type="Boolean" />
+    <Property Name="IsPassengerInvolved" Type="Boolean" />
+    <Property Name="IsThirdPartyInvolved" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <NavigationProperty Name="CrewDetails" Relationship="Self.FK_CrewDetail_PeronalDetail" FromRole="PersonalDetail" ToRole="CrewDetail" />
+    <NavigationProperty Name="Passengers" Relationship="Self.FK_Passenger_PeronalDetail" FromRole="PersonalDetail" ToRole="Passenger" />
+    <NavigationProperty Name="ReportableEvent" Relationship="Self.FK_PeronalDetail_ReportableEvent" FromRole="PersonalDetail" ToRole="ReportableEvent" />
+    <NavigationProperty Name="PersonalDetailAttachments" Relationship="Self.FK_PeronalDetailAttachment_PeronalDetail" FromRole="PersonalDetail" ToRole="PersonalDetailAttachment" />
+    <NavigationProperty Name="ThirdParties" Relationship="Self.FK_ThirdParty_PeronalDetail" FromRole="PersonalDetail" ToRole="ThirdParty" />
+  </EntityType>
+  <EntityType Name="PersonalDetailAttachment">
+    <Key>
+      <PropertyRef Name="PeronalDetailAttachmentId" />
+    </Key>
+    <Property Name="PeronalDetailAttachmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PeronalDetailId" Type="Int32" Nullable="false" />
+    <Property Name="AttachmentName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="PersonalDetail" Relationship="Self.FK_PeronalDetailAttachment_PeronalDetail" FromRole="PersonalDetailAttachment" ToRole="PersonalDetail" />
+  </EntityType>
+  <EntityType Name="Personnel">
+    <Key>
+      <PropertyRef Name="PersonnelId" />
+    </Key>
+    <Property Name="PersonnelId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonnelName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PersonnelEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MobileNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PersonnelRoleId" Type="Int32" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedByPersonnelId" Type="Int32" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedByPersonnelId" Type="Int32" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="PersonnelRole" Relationship="Self.FK_Personnel_PersonnelRole" FromRole="Personnel" ToRole="PersonnelRole" />
+    <NavigationProperty Name="ReportableEventDetails" Relationship="Self.FK_ReportableEventDetail_Personnel" FromRole="Personnel" ToRole="ReportableEventDetail" />
+  </EntityType>
+  <EntityType Name="PersonnelActivation">
+    <Key>
+      <PropertyRef Name="PersonnelActivationId" />
+    </Key>
+    <Property Name="PersonnelActivationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonnelId" Type="Int32" Nullable="false" />
+    <Property Name="ActivationCode" Type="Guid" />
+    <Property Name="IsActivated" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="PersonnelRole">
+    <Key>
+      <PropertyRef Name="PersonnelRoleId" />
+    </Key>
+    <Property Name="PersonnelRoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedByPersonnelId" Type="Int32" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedByPersonnelId" Type="Int32" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Personnels" Relationship="Self.FK_Personnel_PersonnelRole" FromRole="PersonnelRole" ToRole="Personnel" />
+  </EntityType>
+  <EntityType Name="PersonsRescuedAtSea">
+    <Key>
+      <PropertyRef Name="PersonsRescuedAtSeaId" />
+    </Key>
+    <Property Name="PersonsRescuedAtSeaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RescuedCount" Type="Int32" Nullable="false" />
+    <Property Name="ReportableEventId" Type="Int32" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ReportableEvent" Relationship="Self.FK_PersonsRescuedAtSea_ReportableEvent" FromRole="PersonsRescuedAtSea" ToRole="ReportableEvent" />
+    <NavigationProperty Name="PersonsRescuedAtSeaAttachments" Relationship="Self.FK_PersonsRescuedAtSeaAttachment_PersonsRescuedAtSea" FromRole="PersonsRescuedAtSea" ToRole="PersonsRescuedAtSeaAttachment" />
+    <NavigationProperty Name="RescuedPersonDetails" Relationship="Self.FK_RescuedPersonDetail_PersonsRescuedAtSea" FromRole="PersonsRescuedAtSea" ToRole="RescuedPersonDetail" />
+  </EntityType>
+  <EntityType Name="PersonsRescuedAtSeaAttachment">
+    <Key>
+      <PropertyRef Name="PersonsRescuedAtSeaAttachmentId" />
+    </Key>
+    <Property Name="PersonsRescuedAtSeaAttachmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonsRescuedAtSeaId" Type="Int32" Nullable="false" />
+    <Property Name="AttachmentName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="PersonsRescuedAtSea" Relationship="Self.FK_PersonsRescuedAtSeaAttachment_PersonsRescuedAtSea" FromRole="PersonsRescuedAtSeaAttachment" ToRole="PersonsRescuedAtSea" />
+  </EntityType>
+  <EntityType Name="ReportableAdminAttachment">
+    <Key>
+      <PropertyRef Name="EventAttachmentId" />
+    </Key>
+    <Property Name="EventAttachmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportableEventId" Type="Int32" />
+    <Property Name="AttachmentName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="AttachmentType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AttachmentData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ReportableEvent" Relationship="Self.FK_ReportableAdminAttachment_ReportableEvent" FromRole="ReportableAdminAttachment" ToRole="ReportableEvent" />
+  </EntityType>
+  <EntityType Name="ReportableCategory">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CategoryDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IsSuppressed" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDt" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="NearMissReports" Relationship="Self.FK_NearMissReport_ReportableCategory" FromRole="ReportableCategory" ToRole="NearMissReport" />
+    <NavigationProperty Name="ReportableEvents" Relationship="Self.FK_ReportableEvent_ReportableCategory" FromRole="ReportableCategory" ToRole="ReportableEvent" />
+    <NavigationProperty Name="ReportableSubCategories" Relationship="Self.FK_ReportableSubCategory_ReportableCategory" FromRole="ReportableCategory" ToRole="ReportableSubCategory" />
+  </EntityType>
+  <EntityType Name="ReportableEvent">
+    <Key>
+      <PropertyRef Name="ReportableEventId" />
+    </Key>
+    <Property Name="ReportableEventId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="SubCategoryId" Type="Int32" />
+    <Property Name="SubSubCategoryId" Type="Int32" />
+    <Property Name="StatusId" Type="Int32" />
+    <Property Name="IsInternalReview" Type="Boolean" />
+    <Property Name="SubmitToShip" Type="Boolean" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="BirthDetails" Relationship="Self.fk_BirthDetail_ReportableEventId" FromRole="ReportableEvent" ToRole="BirthDetail" />
+    <NavigationProperty Name="BreachOfSecurities" Relationship="Self.FK_BreachOfSecurity_ReportableEvent" FromRole="ReportableEvent" ToRole="BreachOfSecurity" />
+    <NavigationProperty Name="ContactDetails" Relationship="Self.fk_ContactDetail_ReportableEventId" FromRole="ReportableEvent" ToRole="ContactDetail" />
+    <NavigationProperty Name="DeathDetails" Relationship="Self.FK_DeathDetail_ReportableEvent" FromRole="ReportableEvent" ToRole="DeathDetail" />
+    <NavigationProperty Name="Diseases" Relationship="Self.FK_Disease_ReportableEvent" FromRole="ReportableEvent" ToRole="Disease" />
+    <NavigationProperty Name="EnvironmentalDetails" Relationship="Self.FK_EnvironmentalDetail_ReportableEvent" FromRole="ReportableEvent" ToRole="EnvironmentalDetail" />
+    <NavigationProperty Name="InjuryDetails" Relationship="Self.FK_InjuryDetail_ReportableEvent" FromRole="ReportableEvent" ToRole="InjuryDetail" />
+    <NavigationProperty Name="Marpols" Relationship="Self.FK_Marpol_ReportableEvent" FromRole="ReportableEvent" ToRole="Marpol" />
+    <NavigationProperty Name="MaterialDamages" Relationship="Self.FK_MaterialDamage_ReportableEvent" FromRole="ReportableEvent" ToRole="MaterialDamage" />
+    <NavigationProperty Name="ObjectDetails" Relationship="Self.FK_ObjectDetail_ReportableEvent" FromRole="ReportableEvent" ToRole="ObjectDetail" />
+    <NavigationProperty Name="OtherVesselDetails" Relationship="Self.FK_OtherVesselDetail_ReportableEvent" FromRole="ReportableEvent" ToRole="OtherVesselDetail" />
+    <NavigationProperty Name="PersonalDetails" Relationship="Self.FK_PeronalDetail_ReportableEvent" FromRole="ReportableEvent" ToRole="PersonalDetail" />
+    <NavigationProperty Name="PersonsRescuedAtSeas" Relationship="Self.FK_PersonsRescuedAtSea_ReportableEvent" FromRole="ReportableEvent" ToRole="PersonsRescuedAtSea" />
+    <NavigationProperty Name="ReportableAdminAttachments" Relationship="Self.FK_ReportableAdminAttachment_ReportableEvent" FromRole="ReportableEvent" ToRole="ReportableAdminAttachment" />
+    <NavigationProperty Name="ReportableCategory" Relationship="Self.FK_ReportableEvent_ReportableCategory" FromRole="ReportableEvent" ToRole="ReportableCategory" />
+    <NavigationProperty Name="ReportableSubCategory" Relationship="Self.FK_ReportableEvent_ReportableSubCategory" FromRole="ReportableEvent" ToRole="ReportableSubCategory" />
+    <NavigationProperty Name="ReportableSubSubCategory" Relationship="Self.FK_ReportableEvent_ReportableSubSubCategory" FromRole="ReportableEvent" ToRole="ReportableSubSubCategory" />
+    <NavigationProperty Name="ReportableEventDetails" Relationship="Self.FK_ReportableEventDetail_ReportableEvent" FromRole="ReportableEvent" ToRole="ReportableEventDetail" />
+    <NavigationProperty Name="ReportableEventCorrespondences" Relationship="Self.FK_ReportableEventRemark_ReportableEvent" FromRole="ReportableEvent" ToRole="ReportableEventCorrespondence" />
+    <NavigationProperty Name="VesselDetails" Relationship="Self.FK_VesselDetail_ReportableEvent" FromRole="ReportableEvent" ToRole="VesselDetail" />
+    <NavigationProperty Name="VesselMissings" Relationship="Self.FK_VesselMissing_ReportableEvent" FromRole="ReportableEvent" ToRole="VesselMissing" />
+    <NavigationProperty Name="ActionTakens" Relationship="BMA_DEVModel.FK_ActionTaken_ReportableEvent" FromRole="ReportableEvent" ToRole="ActionTaken" />
+  </EntityType>
+  <EntityType Name="ReportableEventCorrespondence">
+    <Key>
+      <PropertyRef Name="ReportableEventRemarkId" />
+    </Key>
+    <Property Name="ReportableEventRemarkId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportableEventId" Type="Int32" />
+    <Property Name="Correspondence" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ReportableEvent" Relationship="Self.FK_ReportableEventRemark_ReportableEvent" FromRole="ReportableEventCorrespondence" ToRole="ReportableEvent" />
+  </EntityType>
+  <EntityType Name="ReportableEventDetail">
+    <Key>
+      <PropertyRef Name="ReportableEventDetailId" />
+    </Key>
+    <Property Name="ReportableEventDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportableEventId" Type="Int32" Nullable="false" />
+    <Property Name="EventSeverityId" Type="Int32" />
+    <Property Name="EventStatusId" Type="Int32" />
+    <Property Name="EventActionId" Type="Int32" />
+    <Property Name="AssigneeId" Type="Int32" />
+    <Property Name="TechnicalManager" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DpaEmail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="IsPassport" Type="Boolean" />
+    <Property Name="IsDeath" Type="Boolean" />
+    <Property Name="IsDoctorReport" Type="Boolean" />
+    <Property Name="IsOfficial" Type="Boolean" />
+    <Property Name="IsPhoto" Type="Boolean" />
+    <Property Name="IsWitnessStatement" Type="Boolean" />
+    <Property Name="NeedMoreInfo" Type="Boolean" />
+    <Property Name="EmailId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsRecomended" Type="Boolean" />
+    <Property Name="Recommendation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsRemarks" Type="Boolean" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PublishedDt" Type="DateTime" Precision="3" />
+    <Property Name="IsClosure" Type="Boolean" />
+    <Property Name="ClosedDt" Type="DateTime" Precision="3" />
+    <Property Name="ClosureBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NmiEmailBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="EventAction" Relationship="Self.FK_ReportableEventDetail_EventAction" FromRole="ReportableEventDetail" ToRole="EventAction" />
+    <NavigationProperty Name="EventSeverity" Relationship="Self.FK_ReportableEventDetail_EventSeverity" FromRole="ReportableEventDetail" ToRole="EventSeverity" />
+    <NavigationProperty Name="EventStatu" Relationship="Self.FK_ReportableEventDetail_EventStatus" FromRole="ReportableEventDetail" ToRole="EventStatus" />
+    <NavigationProperty Name="Personnel" Relationship="Self.FK_ReportableEventDetail_Personnel" FromRole="ReportableEventDetail" ToRole="Personnel" />
+    <NavigationProperty Name="ReportableEvent" Relationship="Self.FK_ReportableEventDetail_ReportableEvent" FromRole="ReportableEventDetail" ToRole="ReportableEvent" />
+  </EntityType>
+  <EntityType Name="ReportableEventDetailHistory">
+    <Key>
+      <PropertyRef Name="ReportableEventDetailHistoryId" />
+    </Key>
+    <Property Name="ReportableEventDetailHistoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportableEventId" Type="Int32" Nullable="false" />
+    <Property Name="AssigneeId" Type="Int32" />
+    <Property Name="EventSeverityId" Type="Int32" />
+    <Property Name="EventStatusId" Type="Int32" />
+    <Property Name="EventActionId" Type="Int32" />
+    <Property Name="TechnicalManager" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DpaEmail" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IsPassport" Type="Boolean" />
+    <Property Name="IsDeath" Type="Boolean" />
+    <Property Name="IsDoctorReport" Type="Boolean" />
+    <Property Name="IsOfficial" Type="Boolean" />
+    <Property Name="IsPhoto" Type="Boolean" />
+    <Property Name="IsWitnessStatement" Type="Boolean" />
+    <Property Name="NeedMoreInfo" Type="Boolean" />
+    <Property Name="EmailId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsRecomended" Type="Boolean" />
+    <Property Name="Recommendation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsRemarks" Type="Boolean" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PublishedDt" Type="DateTime" Precision="3" />
+    <Property Name="ClosedDt" Type="DateTime" Precision="3" />
+    <Property Name="IsClosure" Type="Boolean" />
+    <Property Name="ClosureBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NmiEmailBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ReportableSubCategory">
+    <Key>
+      <PropertyRef Name="ReportableSubCategoryId" />
+    </Key>
+    <Property Name="ReportableSubCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="ReportableSubCategoryName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="NearMissReports" Relationship="Self.FK_NearMissReport_ReportableSubCategory" FromRole="ReportableSubCategory" ToRole="NearMissReport" />
+    <NavigationProperty Name="ReportableCategory" Relationship="Self.FK_ReportableSubCategory_ReportableCategory" FromRole="ReportableSubCategory" ToRole="ReportableCategory" />
+    <NavigationProperty Name="ReportableEvents" Relationship="Self.FK_ReportableEvent_ReportableSubCategory" FromRole="ReportableSubCategory" ToRole="ReportableEvent" />
+    <NavigationProperty Name="ReportableSubSubCategory" Relationship="Self.FK_ReportableSubSubCategory_ReportableSubCategory" FromRole="ReportableSubCategory" ToRole="ReportableSubSubCategory" />
+  </EntityType>
+  <EntityType Name="ReportableSubSubCategory">
+    <Key>
+      <PropertyRef Name="ReportableSubSubCategoryId" />
+    </Key>
+    <Property Name="ReportableSubSubCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportableSubCategoryId" Type="Int32" />
+    <Property Name="ReportableSubSubCategoryName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ReportableEvents" Relationship="Self.FK_ReportableEvent_ReportableSubSubCategory" FromRole="ReportableSubSubCategory" ToRole="ReportableEvent" />
+    <NavigationProperty Name="ReportableSubCategory" Relationship="Self.FK_ReportableSubSubCategory_ReportableSubCategory" FromRole="ReportableSubSubCategory" ToRole="ReportableSubCategory" />
+  </EntityType>
+  <EntityType Name="RescuedPersonDetail">
+    <Key>
+      <PropertyRef Name="RescuedPersonDetailId" />
+    </Key>
+    <Property Name="RescuedPersonDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonsRescuedAtSeaId" Type="Int32" Nullable="false" />
+    <Property Name="RescuedName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RescuedPersonAge" Type="Int32" Nullable="false" />
+    <Property Name="RescuedPersonGender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RescuedGenderOther" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="RescuedPersonNationalityId" Type="Int32" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdateddBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="PersonsRescuedAtSea" Relationship="Self.FK_RescuedPersonDetail_PersonsRescuedAtSea" FromRole="RescuedPersonDetail" ToRole="PersonsRescuedAtSea" />
+  </EntityType>
+  <EntityType Name="StowawayDetail">
+    <Key>
+      <PropertyRef Name="StowawayDetailId" />
+    </Key>
+    <Property Name="StowawayDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BreachOfSecurityId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Age" Type="Int32" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OtherGender" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NationalityId" Type="Int32" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="BreachOfSecurity" Relationship="Self.fk_StowawaysDetail_ReportableEventId" FromRole="StowawayDetail" ToRole="BreachOfSecurity" />
+  </EntityType>
+  <EntityType Name="ThirdParty">
+    <Key>
+      <PropertyRef Name="ThirdPartyId" />
+    </Key>
+    <Property Name="ThirdPartyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonalDetailId" Type="Int32" Nullable="false" />
+    <Property Name="ThirdPartyName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ThirdPartyGender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ThirdPartyGenderOther" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ThidrPartyNationalityId" Type="Int32" Nullable="false" />
+    <Property Name="ThirdPartyAge" Type="Int32" Nullable="false" />
+    <Property Name="ThirdPartyPassPortNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ThirdPartyOnDuty" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ThirdPartyRoleOnBoard" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <NavigationProperty Name="PersonalDetail" Relationship="Self.FK_ThirdParty_PeronalDetail" FromRole="ThirdParty" ToRole="PersonalDetail" />
+  </EntityType>
+  <EntityType Name="VesselDetail">
+    <Key>
+      <PropertyRef Name="VesselDetailId" />
+    </Key>
+    <Property Name="VesselDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportableEventId" Type="Int32" Nullable="false" />
+    <Property Name="BriefDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Cargo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CoastalstateId" Type="Int32" />
+    <Property Name="DateofEvent" Type="DateTime" Precision="3" />
+    <Property Name="Flag" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IMONumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsImoMatched" Type="Boolean" />
+    <Property Name="IsFatality" Type="Boolean" />
+    <Property Name="IsInjuredPerson" Type="Boolean" />
+    <Property Name="IsMaterialDamage" Type="Boolean" />
+    <Property Name="IsMissingPerson" Type="Boolean" />
+    <Property Name="IsPollution" Type="Boolean" />
+    <Property Name="LatitudeDecimal" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LatitudeDegree" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LatitudeDirection" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LongitudeDecimal" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LongitudeDegree" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LongitudeDirection" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LengthOverAll" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="NotApplicable" Type="Boolean" />
+    <Property Name="NoOfCrewOnBoard" Type="Int32" />
+    <Property Name="NoOfPasengers" Type="Int32" />
+    <Property Name="NoOfSuperNumeraries" Type="Int32" />
+    <Property Name="OperationofVesselId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PECHolder" Type="Boolean" />
+    <Property Name="StageofPassageId" Type="Int32" />
+    <Property Name="ReportableTimeofEvent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ReportableTimeZone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UnderPilotage" Type="Boolean" />
+    <Property Name="VesselTypeId" Type="Int32" />
+    <Property Name="OtherVessel" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="VoyageFrom" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="VoyageTo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="VesselName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="OtherOperationVessel" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ReportableEvent" Relationship="Self.FK_VesselDetail_ReportableEvent" FromRole="VesselDetail" ToRole="ReportableEvent" />
+  </EntityType>
+  <EntityType Name="VesselInvolved">
+    <Key>
+      <PropertyRef Name="VesselInvolvedId" />
+    </Key>
+    <Property Name="VesselInvolvedId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OtherVesselDetailId" Type="Int32" Nullable="false" />
+    <Property Name="VesselName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ImoNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FlagState" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <NavigationProperty Name="OtherVesselDetail" Relationship="Self.FK_VesselInvolved_OtherVesselDetail" FromRole="VesselInvolved" ToRole="OtherVesselDetail" />
+  </EntityType>
+  <EntityType Name="VesselMissing">
+    <Key>
+      <PropertyRef Name="VesselMissingId" />
+    </Key>
+    <Property Name="VesselMissingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportableEventId" Type="Int32" Nullable="false" />
+    <Property Name="LastKnownLatitudeDegree" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="LastKnownLatitudeDecimal" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="LastKnownLatitudeDirection" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastKnownLongitudeDegree" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="LastKnownLongitudeDecimal" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="LastKnownLongitudeDirection" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastKnownLocationTime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="LastKnownTimeZone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LastKnownPositionDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PositionSourceId" Type="Int32" Nullable="false" />
+    <Property Name="OtherPositionSource" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ReportableEvent" Relationship="Self.FK_VesselMissing_ReportableEvent" FromRole="VesselMissing" ToRole="ReportableEvent" />
+    <NavigationProperty Name="VesselMissingAttachments" Relationship="Self.FK_VesselMissingAttachment_VesselMissing" FromRole="VesselMissing" ToRole="VesselMissingAttachment" />
+  </EntityType>
+  <EntityType Name="VesselMissingAttachment">
+    <Key>
+      <PropertyRef Name="VesselMissingAttachmentId" />
+    </Key>
+    <Property Name="VesselMissingAttachmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VesselMissingId" Type="Int32" Nullable="false" />
+    <Property Name="AttachmentName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttachmentData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="VesselMissing" Relationship="Self.FK_VesselMissingAttachment_VesselMissing" FromRole="VesselMissingAttachment" ToRole="VesselMissing" />
+  </EntityType>
+  <EntityType Name="BorisCompanyMapping">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="contact" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="imo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="account" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="seafareremail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="defaultoperator" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="url" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="fk_BirthDetail_ReportableEventId">
+    <End Role="ReportableEvent" Type="Self.ReportableEvent" Multiplicity="1" />
+    <End Role="BirthDetail" Type="Self.BirthDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportableEvent">
+        <PropertyRef Name="ReportableEventId" />
+      </Principal>
+      <Dependent Role="BirthDetail">
+        <PropertyRef Name="ReportableEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BirthDetailAttachment_BirthDetail">
+    <End Role="BirthDetail" Type="Self.BirthDetail" Multiplicity="1" />
+    <End Role="BirthDetailAttachment" Type="Self.BirthDetailAttachment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BirthDetail">
+        <PropertyRef Name="BirthDetailId" />
+      </Principal>
+      <Dependent Role="BirthDetailAttachment">
+        <PropertyRef Name="BirthDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BreachOfSecurity_ReportableEvent">
+    <End Role="ReportableEvent" Type="Self.ReportableEvent" Multiplicity="1" />
+    <End Role="BreachOfSecurity" Type="Self.BreachOfSecurity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportableEvent">
+        <PropertyRef Name="ReportableEventId" />
+      </Principal>
+      <Dependent Role="BreachOfSecurity">
+        <PropertyRef Name="ReportableEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BreachOfSecurityAttachment_BreachOfSecurity">
+    <End Role="BreachOfSecurity" Type="Self.BreachOfSecurity" Multiplicity="1" />
+    <End Role="BreachOfSecurityAttachment" Type="Self.BreachOfSecurityAttachment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BreachOfSecurity">
+        <PropertyRef Name="BreachOfSecurityId" />
+      </Principal>
+      <Dependent Role="BreachOfSecurityAttachment">
+        <PropertyRef Name="BreachOfSecurityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_StowawaysDetail_ReportableEventId">
+    <End Role="BreachOfSecurity" Type="Self.BreachOfSecurity" Multiplicity="1" />
+    <End Role="StowawayDetail" Type="Self.StowawayDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BreachOfSecurity">
+        <PropertyRef Name="BreachOfSecurityId" />
+      </Principal>
+      <Dependent Role="StowawayDetail">
+        <PropertyRef Name="BreachOfSecurityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_ContactDetail_ReportableEventId">
+    <End Role="ReportableEvent" Type="Self.ReportableEvent" Multiplicity="1" />
+    <End Role="ContactDetail" Type="Self.ContactDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportableEvent">
+        <PropertyRef Name="ReportableEventId" />
+      </Principal>
+      <Dependent Role="ContactDetail">
+        <PropertyRef Name="ReportableEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContactDetailAttachment_ContactDetailAttachment">
+    <End Role="ContactDetail" Type="Self.ContactDetail" Multiplicity="1" />
+    <End Role="ContactDetailAttachment" Type="Self.ContactDetailAttachment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContactDetail">
+        <PropertyRef Name="ContactDetailId" />
+      </Principal>
+      <Dependent Role="ContactDetailAttachment">
+        <PropertyRef Name="ContactDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CrewDetail_PeronalDetail">
+    <End Role="PersonalDetail" Type="Self.PersonalDetail" Multiplicity="1" />
+    <End Role="CrewDetail" Type="Self.CrewDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PersonalDetail">
+        <PropertyRef Name="PersonalDetailId" />
+      </Principal>
+      <Dependent Role="CrewDetail">
+        <PropertyRef Name="PersonalDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeathDetail_ReportableEvent">
+    <End Role="ReportableEvent" Type="Self.ReportableEvent" Multiplicity="1" />
+    <End Role="DeathDetail" Type="Self.DeathDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportableEvent">
+        <PropertyRef Name="ReportableEventId" />
+      </Principal>
+      <Dependent Role="DeathDetail">
+        <PropertyRef Name="ReportableEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeathDetailAttachment_DeathDetail">
+    <End Role="DeathDetail" Type="Self.DeathDetail" Multiplicity="1" />
+    <End Role="DeathDetailAttachment" Type="Self.DeathDetailAttachment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeathDetail">
+        <PropertyRef Name="DeathId" />
+      </Principal>
+      <Dependent Role="DeathDetailAttachment">
+        <PropertyRef Name="DeathId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Disease_ReportableEvent">
+    <End Role="ReportableEvent" Type="Self.ReportableEvent" Multiplicity="1" />
+    <End Role="Disease" Type="Self.Disease" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportableEvent">
+        <PropertyRef Name="ReportableEventId" />
+      </Principal>
+      <Dependent Role="Disease">
+        <PropertyRef Name="ReportableEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DiseaseAttachment_Disease">
+    <End Role="Disease" Type="Self.Disease" Multiplicity="1" />
+    <End Role="DiseaseAttachment" Type="Self.DiseaseAttachment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Disease">
+        <PropertyRef Name="DiseaseId" />
+      </Principal>
+      <Dependent Role="DiseaseAttachment">
+        <PropertyRef Name="DiseaseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EnvironmentalDetail_ReportableEvent">
+    <End Role="ReportableEvent" Type="Self.ReportableEvent" Multiplicity="1" />
+    <End Role="EnvironmentalDetail" Type="Self.EnvironmentalDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportableEvent">
+        <PropertyRef Name="ReportableEventId" />
+      </Principal>
+      <Dependent Role="EnvironmentalDetail">
+        <PropertyRef Name="ReportableEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EnvironmentAttachment_EnvironmentalDetail">
+    <End Role="EnvironmentalDetail" Type="Self.EnvironmentalDetail" Multiplicity="1" />
+    <End Role="EnvironmentAttachment" Type="Self.EnvironmentAttachment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EnvironmentalDetail">
+        <PropertyRef Name="EnvironmentalDetailId" />
+      </Principal>
+      <Dependent Role="EnvironmentAttachment">
+        <PropertyRef Name="EnvironmentalDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReportableEventDetail_EventAction">
+    <End Role="EventAction" Type="Self.EventAction" Multiplicity="0..1" />
+    <End Role="ReportableEventDetail" Type="Self.ReportableEventDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventAction">
+        <PropertyRef Name="EventActionId" />
+      </Principal>
+      <Dependent Role="ReportableEventDetail">
+        <PropertyRef Name="EventActionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReportableEventDetail_EventSeverity">
+    <End Role="EventSeverity" Type="Self.EventSeverity" Multiplicity="0..1" />
+    <End Role="ReportableEventDetail" Type="Self.ReportableEventDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventSeverity">
+        <PropertyRef Name="EventSeverityId" />
+      </Principal>
+      <Dependent Role="ReportableEventDetail">
+        <PropertyRef Name="EventSeverityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReportableEventDetail_EventStatus">
+    <End Role="EventStatus" Type="Self.EventStatu" Multiplicity="0..1" />
+    <End Role="ReportableEventDetail" Type="Self.ReportableEventDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventStatus">
+        <PropertyRef Name="EventStatusId" />
+      </Principal>
+      <Dependent Role="ReportableEventDetail">
+        <PropertyRef Name="EventStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InjuryDetail_ReportableEvent">
+    <End Role="ReportableEvent" Type="Self.ReportableEvent" Multiplicity="1" />
+    <End Role="InjuryDetail" Type="Self.InjuryDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportableEvent">
+        <PropertyRef Name="ReportableEventId" />
+      </Principal>
+      <Dependent Role="InjuryDetail">
+        <PropertyRef Name="ReportableEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InjuryDetailAttachment_InjuryDetail">
+    <End Role="InjuryDetail" Type="Self.InjuryDetail" Multiplicity="1" />
+    <End Role="InjuryDetailAttachment" Type="Self.InjuryDetailAttachment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InjuryDetail">
+        <PropertyRef Name="InjuryDetailId" />
+      </Principal>
+      <Dependent Role="InjuryDetailAttachment">
+        <PropertyRef Name="InjuryDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LookupData_LookupType">
+    <End Role="LookupType" Type="Self.LookupType" Multiplicity="0..1" />
+    <End Role="LookupData" Type="Self.LookupData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LookupType">
+        <PropertyRef Name="LookupTypeId" />
+      </Principal>
+      <Dependent Role="LookupData">
+        <PropertyRef Name="LookupTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Marpol_ReportableEvent">
+    <End Role="ReportableEvent" Type="Self.ReportableEvent" Multiplicity="1" />
+    <End Role="Marpol" Type="Self.Marpol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportableEvent">
+        <PropertyRef Name="ReportableEventId" />
+      </Principal>
+      <Dependent Role="Marpol">
+        <PropertyRef Name="ReportableEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MarpolAttachment_Marpol">
+    <End Role="Marpol" Type="Self.Marpol" Multiplicity="1" />
+    <End Role="MarpolAttachment" Type="Self.MarpolAttachment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Marpol">
+        <PropertyRef Name="MarpolId" />
+      </Principal>
+      <Dependent Role="MarpolAttachment">
+        <PropertyRef Name="MarpolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaterialDamage_ReportableEvent">
+    <End Role="ReportableEvent" Type="Self.ReportableEvent" Multiplicity="1" />
+    <End Role="MaterialDamage" Type="Self.MaterialDamage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportableEvent">
+        <PropertyRef Name="ReportableEventId" />
+      </Principal>
+      <Dependent Role="MaterialDamage">
+        <PropertyRef Name="ReportableEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaterialDamageAttachment_MaterialDamage">
+    <End Role="MaterialDamage" Type="Self.MaterialDamage" Multiplicity="1" />
+    <End Role="MaterialDamageAttachment" Type="Self.MaterialDamageAttachment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaterialDamage">
+        <PropertyRef Name="MaterialDamageId" />
+      </Principal>
+      <Dependent Role="MaterialDamageAttachment">
+        <PropertyRef Name="MaterialDamageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NearMissReport_ReportableCategory">
+    <End Role="ReportableCategory" Type="Self.ReportableCategory" Multiplicity="1" />
+    <End Role="NearMissReport" Type="Self.NearMissReport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportableCategory">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="NearMissReport">
+        <PropertyRef Name="NearMissPotentialEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NearMissReport_ReportableSubCategory">
+    <End Role="ReportableSubCategory" Type="Self.ReportableSubCategory" Multiplicity="0..1" />
+    <End Role="NearMissReport" Type="Self.NearMissReport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportableSubCategory">
+        <PropertyRef Name="ReportableSubCategoryId" />
+      </Principal>
+      <Dependent Role="NearMissReport">
+        <PropertyRef Name="NearMissPotentialEventSubcategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NearMissReportAttachment_NearMissReport">
+    <End Role="NearMissReport" Type="Self.NearMissReport" Multiplicity="1" />
+    <End Role="NearMissReportAttachment" Type="Self.NearMissReportAttachment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NearMissReport">
+        <PropertyRef Name="NearMissReportId" />
+      </Principal>
+      <Dependent Role="NearMissReportAttachment">
+        <PropertyRef Name="NearMissReportId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ObjectDetail_ReportableEvent">
+    <End Role="ReportableEvent" Type="Self.ReportableEvent" Multiplicity="1" />
+    <End Role="ObjectDetail" Type="Self.ObjectDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportableEvent">
+        <PropertyRef Name="ReportableEventId" />
+      </Principal>
+      <Dependent Role="ObjectDetail">
+        <PropertyRef Name="ReportableEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ObjectDetailAttachment_ObjectDetail">
+    <End Role="ObjectDetail" Type="Self.ObjectDetail" Multiplicity="1" />
+    <End Role="ObjectDetailAttachment" Type="Self.ObjectDetailAttachment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ObjectDetail">
+        <PropertyRef Name="ObjectDetailId" />
+      </Principal>
+      <Dependent Role="ObjectDetailAttachment">
+        <PropertyRef Name="ObjectDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OtherVesselAttachment_OtherVesselDetail">
+    <End Role="OtherVesselDetail" Type="Self.OtherVesselDetail" Multiplicity="1" />
+    <End Role="OtherVesselAttachment" Type="Self.OtherVesselAttachment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OtherVesselDetail">
+        <PropertyRef Name="OtherVesselDetailId" />
+      </Principal>
+      <Dependent Role="OtherVesselAttachment">
+        <PropertyRef Name="OtherVesselDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OtherVesselDetail_ReportableEvent">
+    <End Role="ReportableEvent" Type="Self.ReportableEvent" Multiplicity="1" />
+    <End Role="OtherVesselDetail" Type="Self.OtherVesselDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportableEvent">
+        <PropertyRef Name="ReportableEventId" />
+      </Principal>
+      <Dependent Role="OtherVesselDetail">
+        <PropertyRef Name="ReportableEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VesselInvolved_OtherVesselDetail">
+    <End Role="OtherVesselDetail" Type="Self.OtherVesselDetail" Multiplicity="1" />
+    <End Role="VesselInvolved" Type="Self.VesselInvolved" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OtherVesselDetail">
+        <PropertyRef Name="OtherVesselDetailId" />
+      </Principal>
+      <Dependent Role="VesselInvolved">
+        <PropertyRef Name="OtherVesselDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Passenger_PeronalDetail">
+    <End Role="PersonalDetail" Type="Self.PersonalDetail" Multiplicity="1" />
+    <End Role="Passenger" Type="Self.Passenger" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PersonalDetail">
+        <PropertyRef Name="PersonalDetailId" />
+      </Principal>
+      <Dependent Role="Passenger">
+        <PropertyRef Name="PersonalDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PeronalDetail_ReportableEvent">
+    <End Role="ReportableEvent" Type="Self.ReportableEvent" Multiplicity="1" />
+    <End Role="PersonalDetail" Type="Self.PersonalDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportableEvent">
+        <PropertyRef Name="ReportableEventId" />
+      </Principal>
+      <Dependent Role="PersonalDetail">
+        <PropertyRef Name="ReportableEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PeronalDetailAttachment_PeronalDetail">
+    <End Role="PersonalDetail" Type="Self.PersonalDetail" Multiplicity="1" />
+    <End Role="PersonalDetailAttachment" Type="Self.PersonalDetailAttachment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PersonalDetail">
+        <PropertyRef Name="PersonalDetailId" />
+      </Principal>
+      <Dependent Role="PersonalDetailAttachment">
+        <PropertyRef Name="PeronalDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ThirdParty_PeronalDetail">
+    <End Role="PersonalDetail" Type="Self.PersonalDetail" Multiplicity="1" />
+    <End Role="ThirdParty" Type="Self.ThirdParty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PersonalDetail">
+        <PropertyRef Name="PersonalDetailId" />
+      </Principal>
+      <Dependent Role="ThirdParty">
+        <PropertyRef Name="PersonalDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personnel_PersonnelRole">
+    <End Role="PersonnelRole" Type="Self.PersonnelRole" Multiplicity="0..1" />
+    <End Role="Personnel" Type="Self.Personnel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PersonnelRole">
+        <PropertyRef Name="PersonnelRoleId" />
+      </Principal>
+      <Dependent Role="Personnel">
+        <PropertyRef Name="PersonnelRoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReportableEventDetail_Personnel">
+    <End Role="Personnel" Type="Self.Personnel" Multiplicity="0..1" />
+    <End Role="ReportableEventDetail" Type="Self.ReportableEventDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnel">
+        <PropertyRef Name="PersonnelId" />
+      </Principal>
+      <Dependent Role="ReportableEventDetail">
+        <PropertyRef Name="AssigneeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonsRescuedAtSea_ReportableEvent">
+    <End Role="ReportableEvent" Type="Self.ReportableEvent" Multiplicity="1" />
+    <End Role="PersonsRescuedAtSea" Type="Self.PersonsRescuedAtSea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportableEvent">
+        <PropertyRef Name="ReportableEventId" />
+      </Principal>
+      <Dependent Role="PersonsRescuedAtSea">
+        <PropertyRef Name="ReportableEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonsRescuedAtSeaAttachment_PersonsRescuedAtSea">
+    <End Role="PersonsRescuedAtSea" Type="Self.PersonsRescuedAtSea" Multiplicity="1" />
+    <End Role="PersonsRescuedAtSeaAttachment" Type="Self.PersonsRescuedAtSeaAttachment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PersonsRescuedAtSea">
+        <PropertyRef Name="PersonsRescuedAtSeaId" />
+      </Principal>
+      <Dependent Role="PersonsRescuedAtSeaAttachment">
+        <PropertyRef Name="PersonsRescuedAtSeaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RescuedPersonDetail_PersonsRescuedAtSea">
+    <End Role="PersonsRescuedAtSea" Type="Self.PersonsRescuedAtSea" Multiplicity="1" />
+    <End Role="RescuedPersonDetail" Type="Self.RescuedPersonDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PersonsRescuedAtSea">
+        <PropertyRef Name="PersonsRescuedAtSeaId" />
+      </Principal>
+      <Dependent Role="RescuedPersonDetail">
+        <PropertyRef Name="PersonsRescuedAtSeaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReportableAdminAttachment_ReportableEvent">
+    <End Role="ReportableEvent" Type="Self.ReportableEvent" Multiplicity="0..1" />
+    <End Role="ReportableAdminAttachment" Type="Self.ReportableAdminAttachment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportableEvent">
+        <PropertyRef Name="ReportableEventId" />
+      </Principal>
+      <Dependent Role="ReportableAdminAttachment">
+        <PropertyRef Name="ReportableEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReportableEvent_ReportableCategory">
+    <End Role="ReportableCategory" Type="Self.ReportableCategory" Multiplicity="1" />
+    <End Role="ReportableEvent" Type="Self.ReportableEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportableCategory">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="ReportableEvent">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReportableSubCategory_ReportableCategory">
+    <End Role="ReportableCategory" Type="Self.ReportableCategory" Multiplicity="0..1" />
+    <End Role="ReportableSubCategory" Type="Self.ReportableSubCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportableCategory">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="ReportableSubCategory">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReportableEvent_ReportableSubCategory">
+    <End Role="ReportableSubCategory" Type="Self.ReportableSubCategory" Multiplicity="0..1" />
+    <End Role="ReportableEvent" Type="Self.ReportableEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportableSubCategory">
+        <PropertyRef Name="ReportableSubCategoryId" />
+      </Principal>
+      <Dependent Role="ReportableEvent">
+        <PropertyRef Name="SubCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReportableEvent_ReportableSubSubCategory">
+    <End Role="ReportableSubSubCategory" Type="Self.ReportableSubSubCategory" Multiplicity="0..1" />
+    <End Role="ReportableEvent" Type="Self.ReportableEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportableSubSubCategory">
+        <PropertyRef Name="ReportableSubSubCategoryId" />
+      </Principal>
+      <Dependent Role="ReportableEvent">
+        <PropertyRef Name="SubSubCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReportableEventDetail_ReportableEvent">
+    <End Role="ReportableEvent" Type="Self.ReportableEvent" Multiplicity="1" />
+    <End Role="ReportableEventDetail" Type="Self.ReportableEventDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportableEvent">
+        <PropertyRef Name="ReportableEventId" />
+      </Principal>
+      <Dependent Role="ReportableEventDetail">
+        <PropertyRef Name="ReportableEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReportableEventRemark_ReportableEvent">
+    <End Role="ReportableEvent" Type="Self.ReportableEvent" Multiplicity="0..1" />
+    <End Role="ReportableEventCorrespondence" Type="Self.ReportableEventCorrespondence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportableEvent">
+        <PropertyRef Name="ReportableEventId" />
+      </Principal>
+      <Dependent Role="ReportableEventCorrespondence">
+        <PropertyRef Name="ReportableEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VesselDetail_ReportableEvent">
+    <End Role="ReportableEvent" Type="Self.ReportableEvent" Multiplicity="1" />
+    <End Role="VesselDetail" Type="Self.VesselDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportableEvent">
+        <PropertyRef Name="ReportableEventId" />
+      </Principal>
+      <Dependent Role="VesselDetail">
+        <PropertyRef Name="ReportableEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VesselMissing_ReportableEvent">
+    <End Role="ReportableEvent" Type="Self.ReportableEvent" Multiplicity="1" />
+    <End Role="VesselMissing" Type="Self.VesselMissing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportableEvent">
+        <PropertyRef Name="ReportableEventId" />
+      </Principal>
+      <Dependent Role="VesselMissing">
+        <PropertyRef Name="ReportableEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReportableSubSubCategory_ReportableSubCategory">
+    <End Role="ReportableSubCategory" Type="Self.ReportableSubCategory" Multiplicity="1" />
+    <End Role="ReportableSubSubCategory" Type="Self.ReportableSubSubCategory" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ReportableSubCategory">
+        <PropertyRef Name="ReportableSubCategoryId" />
+      </Principal>
+      <Dependent Role="ReportableSubSubCategory">
+        <PropertyRef Name="ReportableSubSubCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VesselMissingAttachment_VesselMissing">
+    <End Role="VesselMissing" Type="Self.VesselMissing" Multiplicity="1" />
+    <End Role="VesselMissingAttachment" Type="Self.VesselMissingAttachment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VesselMissing">
+        <PropertyRef Name="VesselMissingId" />
+      </Principal>
+      <Dependent Role="VesselMissingAttachment">
+        <PropertyRef Name="VesselMissingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BMA_DEVEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ApplicationLogs" EntityType="Self.ApplicationLog" />
+    <EntitySet Name="BirthDetails" EntityType="Self.BirthDetail" />
+    <EntitySet Name="BirthDetailAttachments" EntityType="Self.BirthDetailAttachment" />
+    <EntitySet Name="BorisVesselMappings" EntityType="Self.BorisVesselMapping" />
+    <EntitySet Name="BorisVesselStatusMappings" EntityType="Self.BorisVesselStatusMapping" />
+    <EntitySet Name="BorisVesselSubTypeMappings" EntityType="Self.BorisVesselSubTypeMapping" />
+    <EntitySet Name="BreachOfSecurities" EntityType="Self.BreachOfSecurity" />
+    <EntitySet Name="BreachOfSecurityAttachments" EntityType="Self.BreachOfSecurityAttachment" />
+    <EntitySet Name="ContactDetails" EntityType="Self.ContactDetail" />
+    <EntitySet Name="ContactDetailAttachments" EntityType="Self.ContactDetailAttachment" />
+    <EntitySet Name="Countries" EntityType="Self.Country" />
+    <EntitySet Name="CrewDetails" EntityType="Self.CrewDetail" />
+    <EntitySet Name="DeathDetails" EntityType="Self.DeathDetail" />
+    <EntitySet Name="DeathDetailAttachments" EntityType="Self.DeathDetailAttachment" />
+    <EntitySet Name="Diseases" EntityType="Self.Disease" />
+    <EntitySet Name="DiseaseAttachments" EntityType="Self.DiseaseAttachment" />
+    <EntitySet Name="EnvironmentalDetails" EntityType="Self.EnvironmentalDetail" />
+    <EntitySet Name="EnvironmentAttachments" EntityType="Self.EnvironmentAttachment" />
+    <EntitySet Name="ErrorLogs" EntityType="Self.ErrorLog" />
+    <EntitySet Name="EventActions" EntityType="Self.EventAction" />
+    <EntitySet Name="EventSeverities" EntityType="Self.EventSeverity" />
+    <EntitySet Name="EventStatus" EntityType="Self.EventStatu" />
+    <EntitySet Name="InjuryDetails" EntityType="Self.InjuryDetail" />
+    <EntitySet Name="InjuryDetailAttachments" EntityType="Self.InjuryDetailAttachment" />
+    <EntitySet Name="LookupDatas" EntityType="Self.LookupData" />
+    <EntitySet Name="LookupTypes" EntityType="Self.LookupType" />
+    <EntitySet Name="Marpols" EntityType="Self.Marpol" />
+    <EntitySet Name="MarpolAttachments" EntityType="Self.MarpolAttachment" />
+    <EntitySet Name="MaterialDamages" EntityType="Self.MaterialDamage" />
+    <EntitySet Name="MaterialDamageAttachments" EntityType="Self.MaterialDamageAttachment" />
+    <EntitySet Name="NearMissReports" EntityType="Self.NearMissReport" />
+    <EntitySet Name="NearMissReportAttachments" EntityType="Self.NearMissReportAttachment" />
+    <EntitySet Name="ObjectDetails" EntityType="Self.ObjectDetail" />
+    <EntitySet Name="ObjectDetailAttachments" EntityType="Self.ObjectDetailAttachment" />
+    <EntitySet Name="OtherVesselAttachments" EntityType="Self.OtherVesselAttachment" />
+    <EntitySet Name="OtherVesselDetails" EntityType="Self.OtherVesselDetail" />
+    <EntitySet Name="Passengers" EntityType="Self.Passenger" />
+    <EntitySet Name="PersonalDetails" EntityType="Self.PersonalDetail" />
+    <EntitySet Name="PersonalDetailAttachments" EntityType="Self.PersonalDetailAttachment" />
+    <EntitySet Name="Personnels" EntityType="Self.Personnel" />
+    <EntitySet Name="PersonnelActivations" EntityType="Self.PersonnelActivation" />
+    <EntitySet Name="PersonnelRoles" EntityType="Self.PersonnelRole" />
+    <EntitySet Name="PersonsRescuedAtSeas" EntityType="Self.PersonsRescuedAtSea" />
+    <EntitySet Name="PersonsRescuedAtSeaAttachments" EntityType="Self.PersonsRescuedAtSeaAttachment" />
+    <EntitySet Name="ReportableAdminAttachments" EntityType="Self.ReportableAdminAttachment" />
+    <EntitySet Name="ReportableCategories" EntityType="Self.ReportableCategory" />
+    <EntitySet Name="ReportableEvents" EntityType="Self.ReportableEvent" />
+    <EntitySet Name="ReportableEventCorrespondences" EntityType="Self.ReportableEventCorrespondence" />
+    <EntitySet Name="ReportableEventDetails" EntityType="Self.ReportableEventDetail" />
+    <EntitySet Name="ReportableEventDetailHistories" EntityType="Self.ReportableEventDetailHistory" />
+    <EntitySet Name="ReportableSubCategories" EntityType="Self.ReportableSubCategory" />
+    <EntitySet Name="ReportableSubSubCategories" EntityType="Self.ReportableSubSubCategory" />
+    <EntitySet Name="RescuedPersonDetails" EntityType="Self.RescuedPersonDetail" />
+    <EntitySet Name="StowawayDetails" EntityType="Self.StowawayDetail" />
+    <EntitySet Name="ThirdParties" EntityType="Self.ThirdParty" />
+    <EntitySet Name="VesselDetails" EntityType="Self.VesselDetail" />
+    <EntitySet Name="VesselInvolveds" EntityType="Self.VesselInvolved" />
+    <EntitySet Name="VesselMissings" EntityType="Self.VesselMissing" />
+    <EntitySet Name="VesselMissingAttachments" EntityType="Self.VesselMissingAttachment" />
+    <EntitySet Name="BorisCompanyMappings" EntityType="Self.BorisCompanyMapping" />
+    <AssociationSet Name="fk_BirthDetail_ReportableEventId" Association="Self.fk_BirthDetail_ReportableEventId">
+      <End Role="ReportableEvent" EntitySet="ReportableEvents" />
+      <End Role="BirthDetail" EntitySet="BirthDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BirthDetailAttachment_BirthDetail" Association="Self.FK_BirthDetailAttachment_BirthDetail">
+      <End Role="BirthDetail" EntitySet="BirthDetails" />
+      <End Role="BirthDetailAttachment" EntitySet="BirthDetailAttachments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BreachOfSecurity_ReportableEvent" Association="Self.FK_BreachOfSecurity_ReportableEvent">
+      <End Role="ReportableEvent" EntitySet="ReportableEvents" />
+      <End Role="BreachOfSecurity" EntitySet="BreachOfSecurities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BreachOfSecurityAttachment_BreachOfSecurity" Association="Self.FK_BreachOfSecurityAttachment_BreachOfSecurity">
+      <End Role="BreachOfSecurity" EntitySet="BreachOfSecurities" />
+      <End Role="BreachOfSecurityAttachment" EntitySet="BreachOfSecurityAttachments" />
+    </AssociationSet>
+    <AssociationSet Name="fk_StowawaysDetail_ReportableEventId" Association="Self.fk_StowawaysDetail_ReportableEventId">
+      <End Role="BreachOfSecurity" EntitySet="BreachOfSecurities" />
+      <End Role="StowawayDetail" EntitySet="StowawayDetails" />
+    </AssociationSet>
+    <AssociationSet Name="fk_ContactDetail_ReportableEventId" Association="Self.fk_ContactDetail_ReportableEventId">
+      <End Role="ReportableEvent" EntitySet="ReportableEvents" />
+      <End Role="ContactDetail" EntitySet="ContactDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContactDetailAttachment_ContactDetailAttachment" Association="Self.FK_ContactDetailAttachment_ContactDetailAttachment">
+      <End Role="ContactDetail" EntitySet="ContactDetails" />
+      <End Role="ContactDetailAttachment" EntitySet="ContactDetailAttachments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CrewDetail_PeronalDetail" Association="Self.FK_CrewDetail_PeronalDetail">
+      <End Role="PersonalDetail" EntitySet="PersonalDetails" />
+      <End Role="CrewDetail" EntitySet="CrewDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeathDetail_ReportableEvent" Association="Self.FK_DeathDetail_ReportableEvent">
+      <End Role="ReportableEvent" EntitySet="ReportableEvents" />
+      <End Role="DeathDetail" EntitySet="DeathDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeathDetailAttachment_DeathDetail" Association="Self.FK_DeathDetailAttachment_DeathDetail">
+      <End Role="DeathDetail" EntitySet="DeathDetails" />
+      <End Role="DeathDetailAttachment" EntitySet="DeathDetailAttachments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Disease_ReportableEvent" Association="Self.FK_Disease_ReportableEvent">
+      <End Role="ReportableEvent" EntitySet="ReportableEvents" />
+      <End Role="Disease" EntitySet="Diseases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DiseaseAttachment_Disease" Association="Self.FK_DiseaseAttachment_Disease">
+      <End Role="Disease" EntitySet="Diseases" />
+      <End Role="DiseaseAttachment" EntitySet="DiseaseAttachments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EnvironmentalDetail_ReportableEvent" Association="Self.FK_EnvironmentalDetail_ReportableEvent">
+      <End Role="ReportableEvent" EntitySet="ReportableEvents" />
+      <End Role="EnvironmentalDetail" EntitySet="EnvironmentalDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EnvironmentAttachment_EnvironmentalDetail" Association="Self.FK_EnvironmentAttachment_EnvironmentalDetail">
+      <End Role="EnvironmentalDetail" EntitySet="EnvironmentalDetails" />
+      <End Role="EnvironmentAttachment" EntitySet="EnvironmentAttachments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReportableEventDetail_EventAction" Association="Self.FK_ReportableEventDetail_EventAction">
+      <End Role="EventAction" EntitySet="EventActions" />
+      <End Role="ReportableEventDetail" EntitySet="ReportableEventDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReportableEventDetail_EventSeverity" Association="Self.FK_ReportableEventDetail_EventSeverity">
+      <End Role="EventSeverity" EntitySet="EventSeverities" />
+      <End Role="ReportableEventDetail" EntitySet="ReportableEventDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReportableEventDetail_EventStatus" Association="Self.FK_ReportableEventDetail_EventStatus">
+      <End Role="EventStatus" EntitySet="EventStatus" />
+      <End Role="ReportableEventDetail" EntitySet="ReportableEventDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InjuryDetail_ReportableEvent" Association="Self.FK_InjuryDetail_ReportableEvent">
+      <End Role="ReportableEvent" EntitySet="ReportableEvents" />
+      <End Role="InjuryDetail" EntitySet="InjuryDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InjuryDetailAttachment_InjuryDetail" Association="Self.FK_InjuryDetailAttachment_InjuryDetail">
+      <End Role="InjuryDetail" EntitySet="InjuryDetails" />
+      <End Role="InjuryDetailAttachment" EntitySet="InjuryDetailAttachments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LookupData_LookupType" Association="Self.FK_LookupData_LookupType">
+      <End Role="LookupType" EntitySet="LookupTypes" />
+      <End Role="LookupData" EntitySet="LookupDatas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Marpol_ReportableEvent" Association="Self.FK_Marpol_ReportableEvent">
+      <End Role="ReportableEvent" EntitySet="ReportableEvents" />
+      <End Role="Marpol" EntitySet="Marpols" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MarpolAttachment_Marpol" Association="Self.FK_MarpolAttachment_Marpol">
+      <End Role="Marpol" EntitySet="Marpols" />
+      <End Role="MarpolAttachment" EntitySet="MarpolAttachments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaterialDamage_ReportableEvent" Association="Self.FK_MaterialDamage_ReportableEvent">
+      <End Role="ReportableEvent" EntitySet="ReportableEvents" />
+      <End Role="MaterialDamage" EntitySet="MaterialDamages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaterialDamageAttachment_MaterialDamage" Association="Self.FK_MaterialDamageAttachment_MaterialDamage">
+      <End Role="MaterialDamage" EntitySet="MaterialDamages" />
+      <End Role="MaterialDamageAttachment" EntitySet="MaterialDamageAttachments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NearMissReport_ReportableCategory" Association="Self.FK_NearMissReport_ReportableCategory">
+      <End Role="ReportableCategory" EntitySet="ReportableCategories" />
+      <End Role="NearMissReport" EntitySet="NearMissReports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NearMissReport_ReportableSubCategory" Association="Self.FK_NearMissReport_ReportableSubCategory">
+      <End Role="ReportableSubCategory" EntitySet="ReportableSubCategories" />
+      <End Role="NearMissReport" EntitySet="NearMissReports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NearMissReportAttachment_NearMissReport" Association="Self.FK_NearMissReportAttachment_NearMissReport">
+      <End Role="NearMissReport" EntitySet="NearMissReports" />
+      <End Role="NearMissReportAttachment" EntitySet="NearMissReportAttachments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ObjectDetail_ReportableEvent" Association="Self.FK_ObjectDetail_ReportableEvent">
+      <End Role="ReportableEvent" EntitySet="ReportableEvents" />
+      <End Role="ObjectDetail" EntitySet="ObjectDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ObjectDetailAttachment_ObjectDetail" Association="Self.FK_ObjectDetailAttachment_ObjectDetail">
+      <End Role="ObjectDetail" EntitySet="ObjectDetails" />
+      <End Role="ObjectDetailAttachment" EntitySet="ObjectDetailAttachments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OtherVesselAttachment_OtherVesselDetail" Association="Self.FK_OtherVesselAttachment_OtherVesselDetail">
+      <End Role="OtherVesselDetail" EntitySet="OtherVesselDetails" />
+      <End Role="OtherVesselAttachment" EntitySet="OtherVesselAttachments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OtherVesselDetail_ReportableEvent" Association="Self.FK_OtherVesselDetail_ReportableEvent">
+      <End Role="ReportableEvent" EntitySet="ReportableEvents" />
+      <End Role="OtherVesselDetail" EntitySet="OtherVesselDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VesselInvolved_OtherVesselDetail" Association="Self.FK_VesselInvolved_OtherVesselDetail">
+      <End Role="OtherVesselDetail" EntitySet="OtherVesselDetails" />
+      <End Role="VesselInvolved" EntitySet="VesselInvolveds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Passenger_PeronalDetail" Association="Self.FK_Passenger_PeronalDetail">
+      <End Role="PersonalDetail" EntitySet="PersonalDetails" />
+      <End Role="Passenger" EntitySet="Passengers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PeronalDetail_ReportableEvent" Association="Self.FK_PeronalDetail_ReportableEvent">
+      <End Role="ReportableEvent" EntitySet="ReportableEvents" />
+      <End Role="PersonalDetail" EntitySet="PersonalDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PeronalDetailAttachment_PeronalDetail" Association="Self.FK_PeronalDetailAttachment_PeronalDetail">
+      <End Role="PersonalDetail" EntitySet="PersonalDetails" />
+      <End Role="PersonalDetailAttachment" EntitySet="PersonalDetailAttachments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ThirdParty_PeronalDetail" Association="Self.FK_ThirdParty_PeronalDetail">
+      <End Role="PersonalDetail" EntitySet="PersonalDetails" />
+      <End Role="ThirdParty" EntitySet="ThirdParties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personnel_PersonnelRole" Association="Self.FK_Personnel_PersonnelRole">
+      <End Role="PersonnelRole" EntitySet="PersonnelRoles" />
+      <End Role="Personnel" EntitySet="Personnels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReportableEventDetail_Personnel" Association="Self.FK_ReportableEventDetail_Personnel">
+      <End Role="Personnel" EntitySet="Personnels" />
+      <End Role="ReportableEventDetail" EntitySet="ReportableEventDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonsRescuedAtSea_ReportableEvent" Association="Self.FK_PersonsRescuedAtSea_ReportableEvent">
+      <End Role="ReportableEvent" EntitySet="ReportableEvents" />
+      <End Role="PersonsRescuedAtSea" EntitySet="PersonsRescuedAtSeas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonsRescuedAtSeaAttachment_PersonsRescuedAtSea" Association="Self.FK_PersonsRescuedAtSeaAttachment_PersonsRescuedAtSea">
+      <End Role="PersonsRescuedAtSea" EntitySet="PersonsRescuedAtSeas" />
+      <End Role="PersonsRescuedAtSeaAttachment" EntitySet="PersonsRescuedAtSeaAttachments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RescuedPersonDetail_PersonsRescuedAtSea" Association="Self.FK_RescuedPersonDetail_PersonsRescuedAtSea">
+      <End Role="PersonsRescuedAtSea" EntitySet="PersonsRescuedAtSeas" />
+      <End Role="RescuedPersonDetail" EntitySet="RescuedPersonDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReportableAdminAttachment_ReportableEvent" Association="Self.FK_ReportableAdminAttachment_ReportableEvent">
+      <End Role="ReportableEvent" EntitySet="ReportableEvents" />
+      <End Role="ReportableAdminAttachment" EntitySet="ReportableAdminAttachments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReportableEvent_ReportableCategory" Association="Self.FK_ReportableEvent_ReportableCategory">
+      <End Role="ReportableCategory" EntitySet="ReportableCategories" />
+      <End Role="ReportableEvent" EntitySet="ReportableEvents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReportableSubCategory_ReportableCategory" Association="Self.FK_ReportableSubCategory_ReportableCategory">
+      <End Role="ReportableCategory" EntitySet="ReportableCategories" />
+      <End Role="ReportableSubCategory" EntitySet="ReportableSubCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReportableEvent_ReportableSubCategory" Association="Self.FK_ReportableEvent_ReportableSubCategory">
+      <End Role="ReportableSubCategory" EntitySet="ReportableSubCategories" />
+      <End Role="ReportableEvent" EntitySet="ReportableEvents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReportableEvent_ReportableSubSubCategory" Association="Self.FK_ReportableEvent_ReportableSubSubCategory">
+      <End Role="ReportableSubSubCategory" EntitySet="ReportableSubSubCategories" />
+      <End Role="ReportableEvent" EntitySet="ReportableEvents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReportableEventDetail_ReportableEvent" Association="Self.FK_ReportableEventDetail_ReportableEvent">
+      <End Role="ReportableEvent" EntitySet="ReportableEvents" />
+      <End Role="ReportableEventDetail" EntitySet="ReportableEventDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReportableEventRemark_ReportableEvent" Association="Self.FK_ReportableEventRemark_ReportableEvent">
+      <End Role="ReportableEvent" EntitySet="ReportableEvents" />
+      <End Role="ReportableEventCorrespondence" EntitySet="ReportableEventCorrespondences" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VesselDetail_ReportableEvent" Association="Self.FK_VesselDetail_ReportableEvent">
+      <End Role="ReportableEvent" EntitySet="ReportableEvents" />
+      <End Role="VesselDetail" EntitySet="VesselDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VesselMissing_ReportableEvent" Association="Self.FK_VesselMissing_ReportableEvent">
+      <End Role="ReportableEvent" EntitySet="ReportableEvents" />
+      <End Role="VesselMissing" EntitySet="VesselMissings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReportableSubSubCategory_ReportableSubCategory" Association="Self.FK_ReportableSubSubCategory_ReportableSubCategory">
+      <End Role="ReportableSubCategory" EntitySet="ReportableSubCategories" />
+      <End Role="ReportableSubSubCategory" EntitySet="ReportableSubSubCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VesselMissingAttachment_VesselMissing" Association="Self.FK_VesselMissingAttachment_VesselMissing">
+      <End Role="VesselMissing" EntitySet="VesselMissings" />
+      <End Role="VesselMissingAttachment" EntitySet="VesselMissingAttachments" />
+    </AssociationSet>
+    <EntitySet Name="ActionTakens" EntityType="BMA_DEVModel.ActionTaken" />
+    <EntitySet Name="ActionTakenAttachments" EntityType="BMA_DEVModel.ActionTakenAttachment" />
+    <AssociationSet Name="FK_ActionTaken_ReportableEvent" Association="BMA_DEVModel.FK_ActionTaken_ReportableEvent">
+      <End Role="ReportableEvent" EntitySet="ReportableEvents" />
+      <End Role="ActionTaken" EntitySet="ActionTakens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActionTakenAttachment_ActionTaken" Association="BMA_DEVModel.FK_ActionTakenAttachment_ActionTaken">
+      <End Role="ActionTaken" EntitySet="ActionTakens" />
+      <End Role="ActionTakenAttachment" EntitySet="ActionTakenAttachments" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ActionTaken">
+    <Key>
+      <PropertyRef Name="ActionTakenId" />
+    </Key>
+    <Property Name="ActionTakenId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportableEventId" Type="Int32" Nullable="false" />
+    <Property Name="ActionTakenInfo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="36" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ReportableEvent" Relationship="BMA_DEVModel.FK_ActionTaken_ReportableEvent" FromRole="ActionTaken" ToRole="ReportableEvent" />
+    <NavigationProperty Name="ActionTakenAttachments" Relationship="BMA_DEVModel.FK_ActionTakenAttachment_ActionTaken" FromRole="ActionTaken" ToRole="ActionTakenAttachment" />
+  </EntityType>
+  <EntityType Name="ActionTakenAttachment">
+    <Key>
+      <PropertyRef Name="ActionTakenAttachmentId" />
+    </Key>
+    <Property Name="ActionTakenAttachmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActionTakenId" Type="Int32" Nullable="false" />
+    <Property Name="AttachmentName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="AttachmentType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AttachmentData" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsSuppressed" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ActionTaken" Relationship="BMA_DEVModel.FK_ActionTakenAttachment_ActionTaken" FromRole="ActionTakenAttachment" ToRole="ActionTaken" />
+  </EntityType>
+  <Association Name="FK_ActionTaken_ReportableEvent">
+    <End Type="BMA_DEVModel.ReportableEvent" Role="ReportableEvent" Multiplicity="1" />
+    <End Type="BMA_DEVModel.ActionTaken" Role="ActionTaken" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportableEvent">
+        <PropertyRef Name="ReportableEventId" />
+      </Principal>
+      <Dependent Role="ActionTaken">
+        <PropertyRef Name="ReportableEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActionTakenAttachment_ActionTaken">
+    <End Type="BMA_DEVModel.ActionTaken" Role="ActionTaken" Multiplicity="1" />
+    <End Type="BMA_DEVModel.ActionTakenAttachment" Role="ActionTakenAttachment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActionTaken">
+        <PropertyRef Name="ActionTakenId" />
+      </Principal>
+      <Dependent Role="ActionTakenAttachment">
+        <PropertyRef Name="ActionTakenId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

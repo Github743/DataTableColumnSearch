@@ -1,0 +1,1097 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BMA_DEVModelStoreContainer" CdmEntityContainer="BMA_DEVEntities">
+    <EntitySetMapping Name="ApplicationLogs">
+      <EntityTypeMapping TypeName="BMA_DEVModel.ApplicationLog">
+        <MappingFragment StoreEntitySet="ApplicationLog">
+          <ScalarProperty Name="ApplicationLogId" ColumnName="ApplicationLogId" />
+          <ScalarProperty Name="Event" ColumnName="Event" />
+          <ScalarProperty Name="EventDescription" ColumnName="EventDescription" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BirthDetails">
+      <EntityTypeMapping TypeName="BMA_DEVModel.BirthDetail">
+        <MappingFragment StoreEntitySet="BirthDetail">
+          <ScalarProperty Name="BirthDetailId" ColumnName="BirthDetailId" />
+          <ScalarProperty Name="ReportableEventId" ColumnName="ReportableEventId" />
+          <ScalarProperty Name="NewBornName" ColumnName="NewBornName" />
+          <ScalarProperty Name="NewBornGender" ColumnName="NewBornGender" />
+          <ScalarProperty Name="OtherGender" ColumnName="OtherGender" />
+          <ScalarProperty Name="NewBornDateofBirth" ColumnName="NewBornDateofBirth" />
+          <ScalarProperty Name="NewBornBirthTime" ColumnName="NewBornBirthTime" />
+          <ScalarProperty Name="NewBornBirthTimeZone" ColumnName="NewBornBirthTimeZone" />
+          <ScalarProperty Name="NewBornWeight" ColumnName="NewBornWeight" />
+          <ScalarProperty Name="MotherName" ColumnName="MotherName" />
+          <ScalarProperty Name="MotherAge" ColumnName="MotherAge" />
+          <ScalarProperty Name="MotherNationalityId" ColumnName="MotherNationalityId" />
+          <ScalarProperty Name="MotherPassportNumer" ColumnName="MotherPassportNumer" />
+          <ScalarProperty Name="MotherOccupation" ColumnName="MotherOccupation" />
+          <ScalarProperty Name="MotherUsualAddress" ColumnName="MotherUsualAddress" />
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="FatherAge" ColumnName="FatherAge" />
+          <ScalarProperty Name="FatherNationalityId" ColumnName="FatherNationalityId" />
+          <ScalarProperty Name="FatherPassportNumer" ColumnName="FatherPassportNumer" />
+          <ScalarProperty Name="FatherOccupation" ColumnName="FatherOccupation" />
+          <ScalarProperty Name="FatherUsualAddress" ColumnName="FatherUsualAddress" />
+          <ScalarProperty Name="MotherSignature" ColumnName="MotherSignature" />
+          <ScalarProperty Name="FatherSignature" ColumnName="FatherSignature" />
+          <ScalarProperty Name="OfficialLogBookEntry" ColumnName="OfficialLogBookEntry" />
+          <ScalarProperty Name="DoctorReport" ColumnName="DoctorReport" />
+          <ScalarProperty Name="CopyofMotherPassport" ColumnName="CopyofMotherPassport" />
+          <ScalarProperty Name="CopyofFatherPassport" ColumnName="CopyofFatherPassport" />
+          <ScalarProperty Name="SignatureByMaster" ColumnName="SignatureByMaster" />
+          <ScalarProperty Name="DateSigned" ColumnName="DateSigned" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BirthDetailAttachments">
+      <EntityTypeMapping TypeName="BMA_DEVModel.BirthDetailAttachment">
+        <MappingFragment StoreEntitySet="BirthDetailAttachment">
+          <ScalarProperty Name="BirthDetailAttachmentId" ColumnName="BirthDetailAttachmentId" />
+          <ScalarProperty Name="BirthDetailId" ColumnName="BirthDetailId" />
+          <ScalarProperty Name="AttachmentName" ColumnName="AttachmentName" />
+          <ScalarProperty Name="AttachmentType" ColumnName="AttachmentType" />
+          <ScalarProperty Name="AttachmentData" ColumnName="AttachmentData" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BorisVesselMappings">
+      <EntityTypeMapping TypeName="BMA_DEVModel.BorisVesselMapping">
+        <MappingFragment StoreEntitySet="BorisVesselMapping">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="imo" ColumnName="imo" />
+          <ScalarProperty Name="subtypeid" ColumnName="subtypeid" />
+          <ScalarProperty Name="companyid" ColumnName="companyid" />
+          <ScalarProperty Name="statusid" ColumnName="statusid" />
+          <ScalarProperty Name="anniversary" ColumnName="anniversary" />
+          <ScalarProperty Name="officialno" ColumnName="officialno" />
+          <ScalarProperty Name="dpaname" ColumnName="dpaname" />
+          <ScalarProperty Name="dpaemail" ColumnName="dpaemail" />
+          <ScalarProperty Name="dpatelephone" ColumnName="dpatelephone" />
+          <ScalarProperty Name="dpafax" ColumnName="dpafax" />
+          <ScalarProperty Name="ispscontactid" ColumnName="ispscontactid" />
+          <ScalarProperty Name="csoname" ColumnName="csoname" />
+          <ScalarProperty Name="csotel" ColumnName="csotel" />
+          <ScalarProperty Name="csofax" ColumnName="csofax" />
+          <ScalarProperty Name="csoemail" ColumnName="csoemail" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="surveyurl" ColumnName="surveyurl" />
+          <ScalarProperty Name="callsign" ColumnName="callsign" />
+          <ScalarProperty Name="yearofbuild" ColumnName="yearofbuild" />
+          <ScalarProperty Name="lengthofvessel" ColumnName="lengthofvessel" />
+          <ScalarProperty Name="hullmaterial" ColumnName="hullmaterial" />
+          <ScalarProperty Name="nettonnage" ColumnName="nettonnage" />
+          <ScalarProperty Name="grosstonnage" ColumnName="grosstonnage" />
+          <ScalarProperty Name="mouldeddepth" ColumnName="mouldeddepth" />
+          <ScalarProperty Name="breadth" ColumnName="breadth" />
+          <ScalarProperty Name="wherebuilt" ColumnName="wherebuilt" />
+          <ScalarProperty Name="mmsinumber" ColumnName="mmsinumber" />
+          <ScalarProperty Name="vesselage" ColumnName="vesselage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BorisVesselStatusMappings">
+      <EntityTypeMapping TypeName="BMA_DEVModel.BorisVesselStatusMapping">
+        <MappingFragment StoreEntitySet="BorisVesselStatusMapping">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BorisVesselSubTypeMappings">
+      <EntityTypeMapping TypeName="BMA_DEVModel.BorisVesselSubTypeMapping">
+        <MappingFragment StoreEntitySet="BorisVesselSubTypeMapping">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BreachOfSecurities">
+      <EntityTypeMapping TypeName="BMA_DEVModel.BreachOfSecurity">
+        <MappingFragment StoreEntitySet="BreachOfSecurity">
+          <ScalarProperty Name="BreachOfSecurityId" ColumnName="BreachOfSecurityId" />
+          <ScalarProperty Name="ReportableEventId" ColumnName="ReportableEventId" />
+          <ScalarProperty Name="BoardingType" ColumnName="BoardingType" />
+          <ScalarProperty Name="LocationorAttemptedBoarding" ColumnName="LocationorAttemptedBoarding" />
+          <ScalarProperty Name="OwnVesselSpeed" ColumnName="OwnVesselSpeed" />
+          <ScalarProperty Name="VesselFreeBoard" ColumnName="VesselFreeBoard" />
+          <ScalarProperty Name="NoOfPiratesArmed" ColumnName="NoOfPiratesArmed" />
+          <ScalarProperty Name="TypeofWeaponsObserved" ColumnName="TypeofWeaponsObserved" />
+          <ScalarProperty Name="TypeOfWeaponsUsed" ColumnName="TypeOfWeaponsUsed" />
+          <ScalarProperty Name="IndividualApprehended" ColumnName="IndividualApprehended" />
+          <ScalarProperty Name="LocalAuthoritiesInvolved" ColumnName="LocalAuthoritiesInvolved" />
+          <ScalarProperty Name="AgencyContactDetails" ColumnName="AgencyContactDetails" />
+          <ScalarProperty Name="MethodOfBoarding" ColumnName="MethodOfBoarding" />
+          <ScalarProperty Name="NoOfPerson" ColumnName="NoOfPerson" />
+          <ScalarProperty Name="HidingPlaceOfStowaways" ColumnName="HidingPlaceOfStowaways" />
+          <ScalarProperty Name="EmbarkationDate" ColumnName="EmbarkationDate" />
+          <ScalarProperty Name="ExpectedPortOfDisembarkation" ColumnName="ExpectedPortOfDisembarkation" />
+          <ScalarProperty Name="DisembarkationExpectedDate" ColumnName="DisembarkationExpectedDate" />
+          <ScalarProperty Name="NumberOfFatalities" ColumnName="NumberOfFatalities" />
+          <ScalarProperty Name="StowawaysRequestingPoliticalAsylum" ColumnName="StowawaysRequestingPoliticalAsylum" />
+          <ScalarProperty Name="StowayMethodOfBoarding" ColumnName="StowayMethodOfBoarding" />
+          <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+          <ScalarProperty Name="UnAuthorizedIndividualApprehended" ColumnName="UnAuthorizedIndividualApprehended" />
+          <ScalarProperty Name="UnAuthorizedLocalAuthoritiesInvolved" ColumnName="UnAuthorizedLocalAuthoritiesInvolved" />
+          <ScalarProperty Name="UnAuthorizedAgencyContactDetails" ColumnName="UnAuthorizedAgencyContactDetails" />
+          <ScalarProperty Name="UnAuthorizedMethodofBoarding" ColumnName="UnAuthorizedMethodofBoarding" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BreachOfSecurityAttachments">
+      <EntityTypeMapping TypeName="BMA_DEVModel.BreachOfSecurityAttachment">
+        <MappingFragment StoreEntitySet="BreachOfSecurityAttachment">
+          <ScalarProperty Name="BreachOfSecurityAttachmentId" ColumnName="BreachOfSecurityAttachmentId" />
+          <ScalarProperty Name="BreachOfSecurityId" ColumnName="BreachOfSecurityId" />
+          <ScalarProperty Name="AttachmentName" ColumnName="AttachmentName" />
+          <ScalarProperty Name="AttachmentType" ColumnName="AttachmentType" />
+          <ScalarProperty Name="AttachmentData" ColumnName="AttachmentData" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContactDetails">
+      <EntityTypeMapping TypeName="BMA_DEVModel.ContactDetail">
+        <MappingFragment StoreEntitySet="ContactDetail">
+          <ScalarProperty Name="ContactDetailId" ColumnName="ContactDetailId" />
+          <ScalarProperty Name="ReportableEventId" ColumnName="ReportableEventId" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="PersonRole" ColumnName="PersonRole" />
+          <ScalarProperty Name="PersonDate" ColumnName="PersonDate" />
+          <ScalarProperty Name="PersonEmail" ColumnName="PersonEmail" />
+          <ScalarProperty Name="DPAName" ColumnName="DPAName" />
+          <ScalarProperty Name="DPAEmail" ColumnName="DPAEmail" />
+          <ScalarProperty Name="DPAPhoneNumber" ColumnName="DPAPhoneNumber" />
+          <ScalarProperty Name="MasterName" ColumnName="MasterName" />
+          <ScalarProperty Name="MasterPhoneNumber" ColumnName="MasterPhoneNumber" />
+          <ScalarProperty Name="MasterEmail" ColumnName="MasterEmail" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContactDetailAttachments">
+      <EntityTypeMapping TypeName="BMA_DEVModel.ContactDetailAttachment">
+        <MappingFragment StoreEntitySet="ContactDetailAttachment">
+          <ScalarProperty Name="ContactDetailAttachmentId" ColumnName="ContactDetailAttachmentId" />
+          <ScalarProperty Name="ContactDetailId" ColumnName="ContactDetailId" />
+          <ScalarProperty Name="AttachmentName" ColumnName="AttachmentName" />
+          <ScalarProperty Name="AttachmentType" ColumnName="AttachmentType" />
+          <ScalarProperty Name="AttachmentData" ColumnName="AttachmentData" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="BMA_DEVModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CrewDetails">
+      <EntityTypeMapping TypeName="BMA_DEVModel.CrewDetail">
+        <MappingFragment StoreEntitySet="CrewDetail">
+          <ScalarProperty Name="CrewId" ColumnName="CrewId" />
+          <ScalarProperty Name="PersonalDetailId" ColumnName="PersonalDetailId" />
+          <ScalarProperty Name="CrewName" ColumnName="CrewName" />
+          <ScalarProperty Name="CrewGender" ColumnName="CrewGender" />
+          <ScalarProperty Name="CrewGenderOther" ColumnName="CrewGenderOther" />
+          <ScalarProperty Name="CrewNationalityId" ColumnName="CrewNationalityId" />
+          <ScalarProperty Name="CrewAge" ColumnName="CrewAge" />
+          <ScalarProperty Name="CrewPassPortNumber" ColumnName="CrewPassPortNumber" />
+          <ScalarProperty Name="CrewRoleOnBoard" ColumnName="CrewRoleOnBoard" />
+          <ScalarProperty Name="CrewOnDuty" ColumnName="CrewOnDuty" />
+          <ScalarProperty Name="CrewHourOfWork" ColumnName="CrewHourOfWork" />
+          <ScalarProperty Name="CrewHourOfRest" ColumnName="CrewHourOfRest" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeathDetails">
+      <EntityTypeMapping TypeName="BMA_DEVModel.DeathDetail">
+        <MappingFragment StoreEntitySet="DeathDetail">
+          <ScalarProperty Name="DeathId" ColumnName="DeathId" />
+          <ScalarProperty Name="ReportableEventId" ColumnName="ReportableEventId" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+          <ScalarProperty Name="DiseasedPlace" ColumnName="DiseasedPlace" />
+          <ScalarProperty Name="CauseOfDeath" ColumnName="CauseOfDeath" />
+          <ScalarProperty Name="DeathCertifiedBy" ColumnName="DeathCertifiedBy" />
+          <ScalarProperty Name="AnyUnderlyingConds" ColumnName="AnyUnderlyingConds" />
+          <ScalarProperty Name="UnderlyingReason" ColumnName="UnderlyingReason" />
+          <ScalarProperty Name="NokName" ColumnName="NokName" />
+          <ScalarProperty Name="NokPhoneNumber" ColumnName="NokPhoneNumber" />
+          <ScalarProperty Name="NokAddress" ColumnName="NokAddress" />
+          <ScalarProperty Name="RelationShipId" ColumnName="RelationShipId" />
+          <ScalarProperty Name="OtherRelation" ColumnName="OtherRelation" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeathDetailAttachments">
+      <EntityTypeMapping TypeName="BMA_DEVModel.DeathDetailAttachment">
+        <MappingFragment StoreEntitySet="DeathDetailAttachment">
+          <ScalarProperty Name="DeathDetailAttachmentId" ColumnName="DeathDetailAttachmentId" />
+          <ScalarProperty Name="DeathId" ColumnName="DeathId" />
+          <ScalarProperty Name="AttachmentName" ColumnName="AttachmentName" />
+          <ScalarProperty Name="AttachmentType" ColumnName="AttachmentType" />
+          <ScalarProperty Name="AttachmentData" ColumnName="AttachmentData" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Diseases">
+      <EntityTypeMapping TypeName="BMA_DEVModel.Disease">
+        <MappingFragment StoreEntitySet="Disease">
+          <ScalarProperty Name="DiseaseId" ColumnName="DiseaseId" />
+          <ScalarProperty Name="ReportableEventId" ColumnName="ReportableEventId" />
+          <ScalarProperty Name="DiagnosedName" ColumnName="DiagnosedName" />
+          <ScalarProperty Name="DiagnosedPosition" ColumnName="DiagnosedPosition" />
+          <ScalarProperty Name="DiagnosedAuthority" ColumnName="DiagnosedAuthority" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DiseaseAttachments">
+      <EntityTypeMapping TypeName="BMA_DEVModel.DiseaseAttachment">
+        <MappingFragment StoreEntitySet="DiseaseAttachment">
+          <ScalarProperty Name="DiseaseAttachmentId" ColumnName="DiseaseAttachmentId" />
+          <ScalarProperty Name="DiseaseId" ColumnName="DiseaseId" />
+          <ScalarProperty Name="AttachmentName" ColumnName="AttachmentName" />
+          <ScalarProperty Name="AttachmentType" ColumnName="AttachmentType" />
+          <ScalarProperty Name="AttachmentData" ColumnName="AttachmentData" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnvironmentalDetails">
+      <EntityTypeMapping TypeName="BMA_DEVModel.EnvironmentalDetail">
+        <MappingFragment StoreEntitySet="EnvironmentalDetail">
+          <ScalarProperty Name="EnvironmentalDetailId" ColumnName="EnvironmentalDetailId" />
+          <ScalarProperty Name="ReportableEventId" ColumnName="ReportableEventId" />
+          <ScalarProperty Name="WeatherId" ColumnName="WeatherId" />
+          <ScalarProperty Name="VisibilityId" ColumnName="VisibilityId" />
+          <ScalarProperty Name="LightId" ColumnName="LightId" />
+          <ScalarProperty Name="WindSpeedId" ColumnName="WindSpeedId" />
+          <ScalarProperty Name="WindDirection" ColumnName="WindDirection" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnvironmentAttachments">
+      <EntityTypeMapping TypeName="BMA_DEVModel.EnvironmentAttachment">
+        <MappingFragment StoreEntitySet="EnvironmentAttachment">
+          <ScalarProperty Name="EnvironmentAttachmentId" ColumnName="EnvironmentAttachmentId" />
+          <ScalarProperty Name="EnvironmentalDetailId" ColumnName="EnvironmentalDetailId" />
+          <ScalarProperty Name="AttachmentName" ColumnName="AttachmentName" />
+          <ScalarProperty Name="AttachmentType" ColumnName="AttachmentType" />
+          <ScalarProperty Name="AttachmentData" ColumnName="AttachmentData" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ErrorLogs">
+      <EntityTypeMapping TypeName="BMA_DEVModel.ErrorLog">
+        <MappingFragment StoreEntitySet="ErrorLog">
+          <ScalarProperty Name="ErrorLogId" ColumnName="ErrorLogId" />
+          <ScalarProperty Name="ExceptionMessage" ColumnName="ExceptionMessage" />
+          <ScalarProperty Name="ExceptionStackTrace" ColumnName="ExceptionStackTrace" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventActions">
+      <EntityTypeMapping TypeName="BMA_DEVModel.EventAction">
+        <MappingFragment StoreEntitySet="EventAction">
+          <ScalarProperty Name="EventActionId" ColumnName="EventActionId" />
+          <ScalarProperty Name="EventActionName" ColumnName="EventActionName" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventSeverities">
+      <EntityTypeMapping TypeName="BMA_DEVModel.EventSeverity">
+        <MappingFragment StoreEntitySet="EventSeverity">
+          <ScalarProperty Name="EventSeverityId" ColumnName="EventSeverityId" />
+          <ScalarProperty Name="EventSeverityName" ColumnName="EventSeverityName" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventStatus">
+      <EntityTypeMapping TypeName="BMA_DEVModel.EventStatu">
+        <MappingFragment StoreEntitySet="EventStatus">
+          <ScalarProperty Name="EventStatusId" ColumnName="EventStatusId" />
+          <ScalarProperty Name="EventStatus" ColumnName="EventStatus" />
+          <ScalarProperty Name="IsNearMiss" ColumnName="IsNearMiss" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InjuryDetails">
+      <EntityTypeMapping TypeName="BMA_DEVModel.InjuryDetail">
+        <MappingFragment StoreEntitySet="InjuryDetail">
+          <ScalarProperty Name="InjuryDetailId" ColumnName="InjuryDetailId" />
+          <ScalarProperty Name="ReportableEventId" ColumnName="ReportableEventId" />
+          <ScalarProperty Name="BodilyLocationofInjuryId" ColumnName="BodilyLocationofInjuryId" />
+          <ScalarProperty Name="InjuryTypeId" ColumnName="InjuryTypeId" />
+          <ScalarProperty Name="FinalOutcomeId" ColumnName="FinalOutcomeId" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InjuryDetailAttachments">
+      <EntityTypeMapping TypeName="BMA_DEVModel.InjuryDetailAttachment">
+        <MappingFragment StoreEntitySet="InjuryDetailAttachment">
+          <ScalarProperty Name="InjuryDetailAttachmentId" ColumnName="InjuryDetailAttachmentId" />
+          <ScalarProperty Name="InjuryDetailId" ColumnName="InjuryDetailId" />
+          <ScalarProperty Name="AttachmentName" ColumnName="AttachmentName" />
+          <ScalarProperty Name="AttachmentType" ColumnName="AttachmentType" />
+          <ScalarProperty Name="AttachmentData" ColumnName="AttachmentData" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LookupDatas">
+      <EntityTypeMapping TypeName="BMA_DEVModel.LookupData">
+        <MappingFragment StoreEntitySet="LookupData">
+          <ScalarProperty Name="LookupDataId" ColumnName="LookupDataId" />
+          <ScalarProperty Name="LookupDataName" ColumnName="LookupDataName" />
+          <ScalarProperty Name="LookupTypeId" ColumnName="LookupTypeId" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LookupTypes">
+      <EntityTypeMapping TypeName="BMA_DEVModel.LookupType">
+        <MappingFragment StoreEntitySet="LookupType">
+          <ScalarProperty Name="LookupTypeId" ColumnName="LookupTypeId" />
+          <ScalarProperty Name="LookupTypeName" ColumnName="LookupTypeName" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Marpols">
+      <EntityTypeMapping TypeName="BMA_DEVModel.Marpol">
+        <MappingFragment StoreEntitySet="Marpol">
+          <ScalarProperty Name="MarpolId" ColumnName="MarpolId" />
+          <ScalarProperty Name="ReportableEventId" ColumnName="ReportableEventId" />
+          <ScalarProperty Name="PollutionSource" ColumnName="PollutionSource" />
+          <ScalarProperty Name="Pollutant" ColumnName="Pollutant" />
+          <ScalarProperty Name="QuantityOfPollutantToEnvironment" ColumnName="QuantityOfPollutantToEnvironment" />
+          <ScalarProperty Name="QuantityContainedonBoard" ColumnName="QuantityContainedonBoard" />
+          <ScalarProperty Name="QuantityRecovered" ColumnName="QuantityRecovered" />
+          <ScalarProperty Name="IsWithInBahmas" ColumnName="IsWithInBahmas" />
+          <ScalarProperty Name="IsCoastalStateInformed" ColumnName="IsCoastalStateInformed" />
+          <ScalarProperty Name="IsWithinSpecialArea" ColumnName="IsWithinSpecialArea" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MarpolAttachments">
+      <EntityTypeMapping TypeName="BMA_DEVModel.MarpolAttachment">
+        <MappingFragment StoreEntitySet="MarpolAttachment">
+          <ScalarProperty Name="MarpolAttachmentId" ColumnName="MarpolAttachmentId" />
+          <ScalarProperty Name="MarpolId" ColumnName="MarpolId" />
+          <ScalarProperty Name="AttachmentName" ColumnName="AttachmentName" />
+          <ScalarProperty Name="AttachmentType" ColumnName="AttachmentType" />
+          <ScalarProperty Name="AttachmentData" ColumnName="AttachmentData" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaterialDamages">
+      <EntityTypeMapping TypeName="BMA_DEVModel.MaterialDamage">
+        <MappingFragment StoreEntitySet="MaterialDamage">
+          <ScalarProperty Name="MaterialDamageId" ColumnName="MaterialDamageId" />
+          <ScalarProperty Name="ReportableEventId" ColumnName="ReportableEventId" />
+          <ScalarProperty Name="ExtentOfDamage" ColumnName="ExtentOfDamage" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaterialDamageAttachments">
+      <EntityTypeMapping TypeName="BMA_DEVModel.MaterialDamageAttachment">
+        <MappingFragment StoreEntitySet="MaterialDamageAttachment">
+          <ScalarProperty Name="MaterialDamageAttachmentId" ColumnName="MaterialDamageAttachmentId" />
+          <ScalarProperty Name="MaterialDamageId" ColumnName="MaterialDamageId" />
+          <ScalarProperty Name="AttachmentName" ColumnName="AttachmentName" />
+          <ScalarProperty Name="AttachmentType" ColumnName="AttachmentType" />
+          <ScalarProperty Name="AttachmentData" ColumnName="AttachmentData" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NearMissReports">
+      <EntityTypeMapping TypeName="BMA_DEVModel.NearMissReport">
+        <MappingFragment StoreEntitySet="NearMissReport">
+          <ScalarProperty Name="NearMissReportId" ColumnName="NearMissReportId" />
+          <ScalarProperty Name="DateofOccurrence" ColumnName="DateofOccurrence" />
+          <ScalarProperty Name="VesselTypeId" ColumnName="VesselTypeId" />
+          <ScalarProperty Name="Othervesseltype" ColumnName="Othervesseltype" />
+          <ScalarProperty Name="NearMissPotentialEventId" ColumnName="NearMissPotentialEventId" />
+          <ScalarProperty Name="NearMissPotentialEventSubcategoryId" ColumnName="NearMissPotentialEventSubcategoryId" />
+          <ScalarProperty Name="OtherNearMissSubCategory" ColumnName="OtherNearMissSubCategory" />
+          <ScalarProperty Name="PotentialSeverityId" ColumnName="PotentialSeverityId" />
+          <ScalarProperty Name="IsUnsafeAct" ColumnName="IsUnsafeAct" />
+          <ScalarProperty Name="IsUnsafeConditionofArea" ColumnName="IsUnsafeConditionofArea" />
+          <ScalarProperty Name="IsUnsafeConditionofEquipment" ColumnName="IsUnsafeConditionofEquipment" />
+          <ScalarProperty Name="IsUnsafeUseofEquipment" ColumnName="IsUnsafeUseofEquipment" />
+          <ScalarProperty Name="IsOther" ColumnName="IsOther" />
+          <ScalarProperty Name="OtherText" ColumnName="OtherText" />
+          <ScalarProperty Name="BriefDescription" ColumnName="BriefDescription" />
+          <ScalarProperty Name="CasualFactorsIdentified" ColumnName="CasualFactorsIdentified" />
+          <ScalarProperty Name="ActionTaken" ColumnName="ActionTaken" />
+          <ScalarProperty Name="ReportAsAnonymous" ColumnName="ReportAsAnonymous" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RoleOnBoard" ColumnName="RoleOnBoard" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="VesselName" ColumnName="VesselName" />
+          <ScalarProperty Name="IMONumber" ColumnName="IMONumber" />
+          <ScalarProperty Name="AssigneeId" ColumnName="AssigneeId" />
+          <ScalarProperty Name="EventStatusId" ColumnName="EventStatusId" />
+          <ScalarProperty Name="ReviewerComment" ColumnName="ReviewerComment" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NearMissReportAttachments">
+      <EntityTypeMapping TypeName="BMA_DEVModel.NearMissReportAttachment">
+        <MappingFragment StoreEntitySet="NearMissReportAttachment">
+          <ScalarProperty Name="NearMissReportAttachmentId" ColumnName="NearMissReportAttachmentId" />
+          <ScalarProperty Name="NearMissReportId" ColumnName="NearMissReportId" />
+          <ScalarProperty Name="AttachmentName" ColumnName="AttachmentName" />
+          <ScalarProperty Name="AttachmentType" ColumnName="AttachmentType" />
+          <ScalarProperty Name="AttachmentData" ColumnName="AttachmentData" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ObjectDetails">
+      <EntityTypeMapping TypeName="BMA_DEVModel.ObjectDetail">
+        <MappingFragment StoreEntitySet="ObjectDetail">
+          <ScalarProperty Name="ObjectDetailId" ColumnName="ObjectDetailId" />
+          <ScalarProperty Name="ReportableEventId" ColumnName="ReportableEventId" />
+          <ScalarProperty Name="DetailsofObject" ColumnName="DetailsofObject" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ObjectDetailAttachments">
+      <EntityTypeMapping TypeName="BMA_DEVModel.ObjectDetailAttachment">
+        <MappingFragment StoreEntitySet="ObjectDetailAttachment">
+          <ScalarProperty Name="ObjectDetailAttachmentId" ColumnName="ObjectDetailAttachmentId" />
+          <ScalarProperty Name="ObjectDetailId" ColumnName="ObjectDetailId" />
+          <ScalarProperty Name="AttachmentName" ColumnName="AttachmentName" />
+          <ScalarProperty Name="AttachmentType" ColumnName="AttachmentType" />
+          <ScalarProperty Name="AttachmentData" ColumnName="AttachmentData" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OtherVesselAttachments">
+      <EntityTypeMapping TypeName="BMA_DEVModel.OtherVesselAttachment">
+        <MappingFragment StoreEntitySet="OtherVesselAttachment">
+          <ScalarProperty Name="OtherVesselAttachmentId" ColumnName="OtherVesselAttachmentId" />
+          <ScalarProperty Name="OtherVesselDetailId" ColumnName="OtherVesselDetailId" />
+          <ScalarProperty Name="AttachmentName" ColumnName="AttachmentName" />
+          <ScalarProperty Name="AttachmentType" ColumnName="AttachmentType" />
+          <ScalarProperty Name="AttachmentData" ColumnName="AttachmentData" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OtherVesselDetails">
+      <EntityTypeMapping TypeName="BMA_DEVModel.OtherVesselDetail">
+        <MappingFragment StoreEntitySet="OtherVesselDetail">
+          <ScalarProperty Name="OtherVesselDetailId" ColumnName="OtherVesselDetailId" />
+          <ScalarProperty Name="ReportableEventId" ColumnName="ReportableEventId" />
+          <ScalarProperty Name="NumberOfVesselsInvolved" ColumnName="NumberOfVesselsInvolved" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Passengers">
+      <EntityTypeMapping TypeName="BMA_DEVModel.Passenger">
+        <MappingFragment StoreEntitySet="Passenger">
+          <ScalarProperty Name="PassengerId" ColumnName="PassengerId" />
+          <ScalarProperty Name="PersonalDetailId" ColumnName="PersonalDetailId" />
+          <ScalarProperty Name="PassengerName" ColumnName="PassengerName" />
+          <ScalarProperty Name="PassengerGender" ColumnName="PassengerGender" />
+          <ScalarProperty Name="PassengerGenderOther" ColumnName="PassengerGenderOther" />
+          <ScalarProperty Name="PassengerNationalityId" ColumnName="PassengerNationalityId" />
+          <ScalarProperty Name="PassengerAge" ColumnName="PassengerAge" />
+          <ScalarProperty Name="PassengerPassPortNumber" ColumnName="PassengerPassPortNumber" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PersonalDetails">
+      <EntityTypeMapping TypeName="BMA_DEVModel.PersonalDetail">
+        <MappingFragment StoreEntitySet="PersonalDetail">
+          <ScalarProperty Name="PersonalDetailId" ColumnName="PersonalDetailId" />
+          <ScalarProperty Name="ReportableEventId" ColumnName="ReportableEventId" />
+          <ScalarProperty Name="IsCrewInvolved" ColumnName="IsCrewInvolved" />
+          <ScalarProperty Name="IsPassengerInvolved" ColumnName="IsPassengerInvolved" />
+          <ScalarProperty Name="IsThirdPartyInvolved" ColumnName="IsThirdPartyInvolved" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PersonalDetailAttachments">
+      <EntityTypeMapping TypeName="BMA_DEVModel.PersonalDetailAttachment">
+        <MappingFragment StoreEntitySet="PersonalDetailAttachment">
+          <ScalarProperty Name="PeronalDetailAttachmentId" ColumnName="PeronalDetailAttachmentId" />
+          <ScalarProperty Name="PeronalDetailId" ColumnName="PeronalDetailId" />
+          <ScalarProperty Name="AttachmentName" ColumnName="AttachmentName" />
+          <ScalarProperty Name="AttachmentType" ColumnName="AttachmentType" />
+          <ScalarProperty Name="AttachmentData" ColumnName="AttachmentData" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Personnels">
+      <EntityTypeMapping TypeName="BMA_DEVModel.Personnel">
+        <MappingFragment StoreEntitySet="Personnel">
+          <ScalarProperty Name="PersonnelId" ColumnName="PersonnelId" />
+          <ScalarProperty Name="PersonnelName" ColumnName="PersonnelName" />
+          <ScalarProperty Name="PersonnelEmail" ColumnName="PersonnelEmail" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="PersonnelRoleId" ColumnName="PersonnelRoleId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedByPersonnelId" ColumnName="CreatedByPersonnelId" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedByPersonnelId" ColumnName="UpdatedByPersonnelId" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PersonnelActivations">
+      <EntityTypeMapping TypeName="BMA_DEVModel.PersonnelActivation">
+        <MappingFragment StoreEntitySet="PersonnelActivation">
+          <ScalarProperty Name="PersonnelActivationId" ColumnName="PersonnelActivationId" />
+          <ScalarProperty Name="PersonnelId" ColumnName="PersonnelId" />
+          <ScalarProperty Name="ActivationCode" ColumnName="ActivationCode" />
+          <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PersonnelRoles">
+      <EntityTypeMapping TypeName="BMA_DEVModel.PersonnelRole">
+        <MappingFragment StoreEntitySet="PersonnelRole">
+          <ScalarProperty Name="PersonnelRoleId" ColumnName="PersonnelRoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedByPersonnelId" ColumnName="CreatedByPersonnelId" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedByPersonnelId" ColumnName="UpdatedByPersonnelId" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PersonsRescuedAtSeas">
+      <EntityTypeMapping TypeName="BMA_DEVModel.PersonsRescuedAtSea">
+        <MappingFragment StoreEntitySet="PersonsRescuedAtSea">
+          <ScalarProperty Name="PersonsRescuedAtSeaId" ColumnName="PersonsRescuedAtSeaId" />
+          <ScalarProperty Name="RescuedCount" ColumnName="RescuedCount" />
+          <ScalarProperty Name="ReportableEventId" ColumnName="ReportableEventId" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PersonsRescuedAtSeaAttachments">
+      <EntityTypeMapping TypeName="BMA_DEVModel.PersonsRescuedAtSeaAttachment">
+        <MappingFragment StoreEntitySet="PersonsRescuedAtSeaAttachment">
+          <ScalarProperty Name="PersonsRescuedAtSeaAttachmentId" ColumnName="PersonsRescuedAtSeaAttachmentId" />
+          <ScalarProperty Name="PersonsRescuedAtSeaId" ColumnName="PersonsRescuedAtSeaId" />
+          <ScalarProperty Name="AttachmentName" ColumnName="AttachmentName" />
+          <ScalarProperty Name="AttachmentType" ColumnName="AttachmentType" />
+          <ScalarProperty Name="AttachmentData" ColumnName="AttachmentData" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReportableAdminAttachments">
+      <EntityTypeMapping TypeName="BMA_DEVModel.ReportableAdminAttachment">
+        <MappingFragment StoreEntitySet="ReportableAdminAttachment">
+          <ScalarProperty Name="EventAttachmentId" ColumnName="EventAttachmentId" />
+          <ScalarProperty Name="ReportableEventId" ColumnName="ReportableEventId" />
+          <ScalarProperty Name="AttachmentName" ColumnName="AttachmentName" />
+          <ScalarProperty Name="AttachmentType" ColumnName="AttachmentType" />
+          <ScalarProperty Name="AttachmentData" ColumnName="AttachmentData" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReportableCategories">
+      <EntityTypeMapping TypeName="BMA_DEVModel.ReportableCategory">
+        <MappingFragment StoreEntitySet="ReportableCategory">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryDescription" ColumnName="CategoryDescription" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReportableEvents">
+      <EntityTypeMapping TypeName="BMA_DEVModel.ReportableEvent">
+        <MappingFragment StoreEntitySet="ReportableEvent">
+          <ScalarProperty Name="ReportableEventId" ColumnName="ReportableEventId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="SubCategoryId" ColumnName="SubCategoryId" />
+          <ScalarProperty Name="SubSubCategoryId" ColumnName="SubSubCategoryId" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="IsInternalReview" ColumnName="IsInternalReview" />
+          <ScalarProperty Name="SubmitToShip" ColumnName="SubmitToShip" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReportableEventCorrespondences">
+      <EntityTypeMapping TypeName="BMA_DEVModel.ReportableEventCorrespondence">
+        <MappingFragment StoreEntitySet="ReportableEventCorrespondence">
+          <ScalarProperty Name="ReportableEventRemarkId" ColumnName="ReportableEventRemarkId" />
+          <ScalarProperty Name="ReportableEventId" ColumnName="ReportableEventId" />
+          <ScalarProperty Name="Correspondence" ColumnName="Correspondence" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReportableEventDetails">
+      <EntityTypeMapping TypeName="BMA_DEVModel.ReportableEventDetail">
+        <MappingFragment StoreEntitySet="ReportableEventDetail">
+          <ScalarProperty Name="ReportableEventDetailId" ColumnName="ReportableEventDetailId" />
+          <ScalarProperty Name="ReportableEventId" ColumnName="ReportableEventId" />
+          <ScalarProperty Name="EventSeverityId" ColumnName="EventSeverityId" />
+          <ScalarProperty Name="EventStatusId" ColumnName="EventStatusId" />
+          <ScalarProperty Name="EventActionId" ColumnName="EventActionId" />
+          <ScalarProperty Name="AssigneeId" ColumnName="AssigneeId" />
+          <ScalarProperty Name="TechnicalManager" ColumnName="TechnicalManager" />
+          <ScalarProperty Name="DpaEmail" ColumnName="DpaEmail" />
+          <ScalarProperty Name="IsPassport" ColumnName="IsPassport" />
+          <ScalarProperty Name="IsDeath" ColumnName="IsDeath" />
+          <ScalarProperty Name="IsDoctorReport" ColumnName="IsDoctorReport" />
+          <ScalarProperty Name="IsOfficial" ColumnName="IsOfficial" />
+          <ScalarProperty Name="IsPhoto" ColumnName="IsPhoto" />
+          <ScalarProperty Name="IsWitnessStatement" ColumnName="IsWitnessStatement" />
+          <ScalarProperty Name="NeedMoreInfo" ColumnName="NeedMoreInfo" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="IsRecomended" ColumnName="IsRecomended" />
+          <ScalarProperty Name="Recommendation" ColumnName="Recommendation" />
+          <ScalarProperty Name="IsRemarks" ColumnName="IsRemarks" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="PublishedDt" ColumnName="PublishedDt" />
+          <ScalarProperty Name="IsClosure" ColumnName="IsClosure" />
+          <ScalarProperty Name="ClosedDt" ColumnName="ClosedDt" />
+          <ScalarProperty Name="ClosureBody" ColumnName="ClosureBody" />
+          <ScalarProperty Name="NmiEmailBody" ColumnName="NmiEmailBody" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReportableEventDetailHistories">
+      <EntityTypeMapping TypeName="BMA_DEVModel.ReportableEventDetailHistory">
+        <MappingFragment StoreEntitySet="ReportableEventDetailHistory">
+          <ScalarProperty Name="ReportableEventDetailHistoryId" ColumnName="ReportableEventDetailHistoryId" />
+          <ScalarProperty Name="ReportableEventId" ColumnName="ReportableEventId" />
+          <ScalarProperty Name="AssigneeId" ColumnName="AssigneeId" />
+          <ScalarProperty Name="EventSeverityId" ColumnName="EventSeverityId" />
+          <ScalarProperty Name="EventStatusId" ColumnName="EventStatusId" />
+          <ScalarProperty Name="EventActionId" ColumnName="EventActionId" />
+          <ScalarProperty Name="TechnicalManager" ColumnName="TechnicalManager" />
+          <ScalarProperty Name="DpaEmail" ColumnName="DpaEmail" />
+          <ScalarProperty Name="IsPassport" ColumnName="IsPassport" />
+          <ScalarProperty Name="IsDeath" ColumnName="IsDeath" />
+          <ScalarProperty Name="IsDoctorReport" ColumnName="IsDoctorReport" />
+          <ScalarProperty Name="IsOfficial" ColumnName="IsOfficial" />
+          <ScalarProperty Name="IsPhoto" ColumnName="IsPhoto" />
+          <ScalarProperty Name="IsWitnessStatement" ColumnName="IsWitnessStatement" />
+          <ScalarProperty Name="NeedMoreInfo" ColumnName="NeedMoreInfo" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="IsRecomended" ColumnName="IsRecomended" />
+          <ScalarProperty Name="Recommendation" ColumnName="Recommendation" />
+          <ScalarProperty Name="IsRemarks" ColumnName="IsRemarks" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="PublishedDt" ColumnName="PublishedDt" />
+          <ScalarProperty Name="ClosedDt" ColumnName="ClosedDt" />
+          <ScalarProperty Name="IsClosure" ColumnName="IsClosure" />
+          <ScalarProperty Name="ClosureBody" ColumnName="ClosureBody" />
+          <ScalarProperty Name="NmiEmailBody" ColumnName="NmiEmailBody" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReportableSubCategories">
+      <EntityTypeMapping TypeName="BMA_DEVModel.ReportableSubCategory">
+        <MappingFragment StoreEntitySet="ReportableSubCategory">
+          <ScalarProperty Name="ReportableSubCategoryId" ColumnName="ReportableSubCategoryId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="ReportableSubCategoryName" ColumnName="ReportableSubCategoryName" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReportableSubSubCategories">
+      <EntityTypeMapping TypeName="BMA_DEVModel.ReportableSubSubCategory">
+        <MappingFragment StoreEntitySet="ReportableSubSubCategory">
+          <ScalarProperty Name="ReportableSubSubCategoryId" ColumnName="ReportableSubSubCategoryId" />
+          <ScalarProperty Name="ReportableSubCategoryId" ColumnName="ReportableSubCategoryId" />
+          <ScalarProperty Name="ReportableSubSubCategoryName" ColumnName="ReportableSubSubCategoryName" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RescuedPersonDetails">
+      <EntityTypeMapping TypeName="BMA_DEVModel.RescuedPersonDetail">
+        <MappingFragment StoreEntitySet="RescuedPersonDetail">
+          <ScalarProperty Name="RescuedPersonDetailId" ColumnName="RescuedPersonDetailId" />
+          <ScalarProperty Name="PersonsRescuedAtSeaId" ColumnName="PersonsRescuedAtSeaId" />
+          <ScalarProperty Name="RescuedName" ColumnName="RescuedName" />
+          <ScalarProperty Name="RescuedPersonAge" ColumnName="RescuedPersonAge" />
+          <ScalarProperty Name="RescuedPersonGender" ColumnName="RescuedPersonGender" />
+          <ScalarProperty Name="RescuedGenderOther" ColumnName="RescuedGenderOther" />
+          <ScalarProperty Name="RescuedPersonNationalityId" ColumnName="RescuedPersonNationalityId" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdateddBy" ColumnName="UpdateddBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StowawayDetails">
+      <EntityTypeMapping TypeName="BMA_DEVModel.StowawayDetail">
+        <MappingFragment StoreEntitySet="StowawayDetail">
+          <ScalarProperty Name="StowawayDetailId" ColumnName="StowawayDetailId" />
+          <ScalarProperty Name="BreachOfSecurityId" ColumnName="BreachOfSecurityId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="OtherGender" ColumnName="OtherGender" />
+          <ScalarProperty Name="NationalityId" ColumnName="NationalityId" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThirdParties">
+      <EntityTypeMapping TypeName="BMA_DEVModel.ThirdParty">
+        <MappingFragment StoreEntitySet="ThirdParty">
+          <ScalarProperty Name="ThirdPartyId" ColumnName="ThirdPartyId" />
+          <ScalarProperty Name="PersonalDetailId" ColumnName="PersonalDetailId" />
+          <ScalarProperty Name="ThirdPartyName" ColumnName="ThirdPartyName" />
+          <ScalarProperty Name="ThirdPartyGender" ColumnName="ThirdPartyGender" />
+          <ScalarProperty Name="ThirdPartyGenderOther" ColumnName="ThirdPartyGenderOther" />
+          <ScalarProperty Name="ThidrPartyNationalityId" ColumnName="ThidrPartyNationalityId" />
+          <ScalarProperty Name="ThirdPartyAge" ColumnName="ThirdPartyAge" />
+          <ScalarProperty Name="ThirdPartyPassPortNumber" ColumnName="ThirdPartyPassPortNumber" />
+          <ScalarProperty Name="ThirdPartyOnDuty" ColumnName="ThirdPartyOnDuty" />
+          <ScalarProperty Name="ThirdPartyRoleOnBoard" ColumnName="ThirdPartyRoleOnBoard" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VesselDetails">
+      <EntityTypeMapping TypeName="BMA_DEVModel.VesselDetail">
+        <MappingFragment StoreEntitySet="VesselDetail">
+          <ScalarProperty Name="VesselDetailId" ColumnName="VesselDetailId" />
+          <ScalarProperty Name="ReportableEventId" ColumnName="ReportableEventId" />
+          <ScalarProperty Name="BriefDescription" ColumnName="BriefDescription" />
+          <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+          <ScalarProperty Name="CoastalstateId" ColumnName="CoastalstateId" />
+          <ScalarProperty Name="DateofEvent" ColumnName="DateofEvent" />
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+          <ScalarProperty Name="IMONumber" ColumnName="IMONumber" />
+          <ScalarProperty Name="IsImoMatched" ColumnName="IsImoMatched" />
+          <ScalarProperty Name="IsFatality" ColumnName="IsFatality" />
+          <ScalarProperty Name="IsInjuredPerson" ColumnName="IsInjuredPerson" />
+          <ScalarProperty Name="IsMaterialDamage" ColumnName="IsMaterialDamage" />
+          <ScalarProperty Name="IsMissingPerson" ColumnName="IsMissingPerson" />
+          <ScalarProperty Name="IsPollution" ColumnName="IsPollution" />
+          <ScalarProperty Name="LatitudeDecimal" ColumnName="LatitudeDecimal" />
+          <ScalarProperty Name="LatitudeDegree" ColumnName="LatitudeDegree" />
+          <ScalarProperty Name="LatitudeDirection" ColumnName="LatitudeDirection" />
+          <ScalarProperty Name="LongitudeDecimal" ColumnName="LongitudeDecimal" />
+          <ScalarProperty Name="LongitudeDegree" ColumnName="LongitudeDegree" />
+          <ScalarProperty Name="LongitudeDirection" ColumnName="LongitudeDirection" />
+          <ScalarProperty Name="LengthOverAll" ColumnName="LengthOverAll" />
+          <ScalarProperty Name="NotApplicable" ColumnName="NotApplicable" />
+          <ScalarProperty Name="NoOfCrewOnBoard" ColumnName="NoOfCrewOnBoard" />
+          <ScalarProperty Name="NoOfPasengers" ColumnName="NoOfPasengers" />
+          <ScalarProperty Name="NoOfSuperNumeraries" ColumnName="NoOfSuperNumeraries" />
+          <ScalarProperty Name="OperationofVesselId" ColumnName="OperationofVesselId" />
+          <ScalarProperty Name="PECHolder" ColumnName="PECHolder" />
+          <ScalarProperty Name="StageofPassageId" ColumnName="StageofPassageId" />
+          <ScalarProperty Name="ReportableTimeofEvent" ColumnName="ReportableTimeofEvent" />
+          <ScalarProperty Name="ReportableTimeZone" ColumnName="ReportableTimeZone" />
+          <ScalarProperty Name="UnderPilotage" ColumnName="UnderPilotage" />
+          <ScalarProperty Name="VesselTypeId" ColumnName="VesselTypeId" />
+          <ScalarProperty Name="OtherVessel" ColumnName="OtherVessel" />
+          <ScalarProperty Name="VoyageFrom" ColumnName="VoyageFrom" />
+          <ScalarProperty Name="VoyageTo" ColumnName="VoyageTo" />
+          <ScalarProperty Name="VesselName" ColumnName="VesselName" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="OtherOperationVessel" ColumnName="OtherOperationVessel" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VesselInvolveds">
+      <EntityTypeMapping TypeName="BMA_DEVModel.VesselInvolved">
+        <MappingFragment StoreEntitySet="VesselInvolved">
+          <ScalarProperty Name="VesselInvolvedId" ColumnName="VesselInvolvedId" />
+          <ScalarProperty Name="OtherVesselDetailId" ColumnName="OtherVesselDetailId" />
+          <ScalarProperty Name="VesselName" ColumnName="VesselName" />
+          <ScalarProperty Name="ImoNumber" ColumnName="ImoNumber" />
+          <ScalarProperty Name="FlagState" ColumnName="FlagState" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VesselMissings">
+      <EntityTypeMapping TypeName="BMA_DEVModel.VesselMissing">
+        <MappingFragment StoreEntitySet="VesselMissing">
+          <ScalarProperty Name="VesselMissingId" ColumnName="VesselMissingId" />
+          <ScalarProperty Name="ReportableEventId" ColumnName="ReportableEventId" />
+          <ScalarProperty Name="LastKnownLatitudeDegree" ColumnName="LastKnownLatitudeDegree" />
+          <ScalarProperty Name="LastKnownLatitudeDecimal" ColumnName="LastKnownLatitudeDecimal" />
+          <ScalarProperty Name="LastKnownLatitudeDirection" ColumnName="LastKnownLatitudeDirection" />
+          <ScalarProperty Name="LastKnownLongitudeDegree" ColumnName="LastKnownLongitudeDegree" />
+          <ScalarProperty Name="LastKnownLongitudeDecimal" ColumnName="LastKnownLongitudeDecimal" />
+          <ScalarProperty Name="LastKnownLongitudeDirection" ColumnName="LastKnownLongitudeDirection" />
+          <ScalarProperty Name="LastKnownLocationTime" ColumnName="LastKnownLocationTime" />
+          <ScalarProperty Name="LastKnownTimeZone" ColumnName="LastKnownTimeZone" />
+          <ScalarProperty Name="LastKnownPositionDate" ColumnName="LastKnownPositionDate" />
+          <ScalarProperty Name="PositionSourceId" ColumnName="PositionSourceId" />
+          <ScalarProperty Name="OtherPositionSource" ColumnName="OtherPositionSource" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VesselMissingAttachments">
+      <EntityTypeMapping TypeName="BMA_DEVModel.VesselMissingAttachment">
+        <MappingFragment StoreEntitySet="VesselMissingAttachment">
+          <ScalarProperty Name="VesselMissingAttachmentId" ColumnName="VesselMissingAttachmentId" />
+          <ScalarProperty Name="VesselMissingId" ColumnName="VesselMissingId" />
+          <ScalarProperty Name="AttachmentName" ColumnName="AttachmentName" />
+          <ScalarProperty Name="AttachmentType" ColumnName="AttachmentType" />
+          <ScalarProperty Name="AttachmentData" ColumnName="AttachmentData" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BorisCompanyMappings">
+      <EntityTypeMapping TypeName="BMA_DEVModel.BorisCompanyMapping">
+        <MappingFragment StoreEntitySet="BorisCompanyMapping">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="imo" ColumnName="imo" />
+          <ScalarProperty Name="account" ColumnName="account" />
+          <ScalarProperty Name="seafareremail" ColumnName="seafareremail" />
+          <ScalarProperty Name="defaultoperator" ColumnName="defaultoperator" />
+          <ScalarProperty Name="url" ColumnName="url" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActionTakens">
+      <EntityTypeMapping TypeName="BMA_DEVModel.ActionTaken">
+        <MappingFragment StoreEntitySet="ActionTaken">
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="ActionTakenInfo" ColumnName="ActionTakenInfo" />
+          <ScalarProperty Name="ReportableEventId" ColumnName="ReportableEventId" />
+          <ScalarProperty Name="ActionTakenId" ColumnName="ActionTakenId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActionTakenAttachments">
+      <EntityTypeMapping TypeName="BMA_DEVModel.ActionTakenAttachment">
+        <MappingFragment StoreEntitySet="ActionTakenAttachment">
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsSuppressed" ColumnName="IsSuppressed" />
+          <ScalarProperty Name="AttachmentData" ColumnName="AttachmentData" />
+          <ScalarProperty Name="AttachmentType" ColumnName="AttachmentType" />
+          <ScalarProperty Name="AttachmentName" ColumnName="AttachmentName" />
+          <ScalarProperty Name="ActionTakenId" ColumnName="ActionTakenId" />
+          <ScalarProperty Name="ActionTakenAttachmentId" ColumnName="ActionTakenAttachmentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

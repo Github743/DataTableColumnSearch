@@ -1,0 +1,35 @@
+﻿<script src="~/Scripts/jquery-3.6.0.min.js"></script>
+<script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+<link href="~/Content/DataTables/css/dataTables.bootstrap4.min.css" />
+
+<div>
+    <table id="myTable">
+        <thead>
+            <tr>
+                <th>Vessel Name</th>
+                <th>IMO Number</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+         $.noConflict();
+        $("#myTable").DataTable({
+            "processing": true, // for show progress bar
+            "serverSide": true, // for process server side
+            "filter": false, // this is for disable filter (search box)
+            "orderMulti": false, // for disable multiple column at once
+            "ajax": {
+                "url": "/DataTable/LoadData",
+                "type": "POST",
+                "datatype": "json"
+            },
+            "columns": [
+                { "data": "VesselName", "name": "VesselName", "autoWidth": true },
+                { "data": "IMONumber", "name": "IMONumber", "autoWidth": true }
+            ]
+        });
+    });
+</script>  

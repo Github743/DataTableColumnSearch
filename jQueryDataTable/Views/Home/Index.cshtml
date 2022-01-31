@@ -1,0 +1,123 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+<link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+<script type="text/javascript" src="~/Scripts/jquery-3.6.0.min.js"></script>
+
+<table id="example" class="table table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>EventId</th>
+            <th>Vessel Name</th>
+            <th>Vessel Type</th>
+            <th>Event Type</th>
+            <th>Date Of Event</th>
+            @*<th class="head">EventSeverityName</th>
+                <th class="head">EventStatus</th>
+                <th class="head">Assignee</th>
+                <th>BriefDescription</th>*@
+        </tr>
+        <tr class="filters">
+            <th class="filterhead">EventId</th>
+            <th class="filterhead">Vessel Name</th>
+            <th class="filterhead">Vessel Type</th>
+            <th class="filterhead">Event Type</th>
+            <th class="filterhead">Date Of Event</th>
+        </tr>
+    </thead>
+</table>
+
+<script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/fixedheader/3.2.1/js/dataTables.fixedHeader.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.noConflict();
+        $("#datepicker").datepicker({
+            changeMonth: true,
+            dateFormat: 'mm-dd-yy',
+            changeYear: true,
+            showOtherMonths: true,
+            showOn: "button",
+            buttonImage: "images/calendar.gif",
+            buttonImageOnly: true,
+            buttonText: "Select date",
+            selectOtherMonths: true
+        });
+
+        var dataTable = $('#example').DataTable({
+            "orderCellsTop": true,
+            "fixedHeader": true,
+            "processing": true, // for show progress bar
+            "serverSide": true, // for process server side
+            "orderMulti": false, // for disable multiple column at once
+            "ajax": {
+                "url": "/Home/LoadData",
+                "type": "POST",
+                "datatype": "json"
+            },
+            "columns": [
+                { "data": "EventId", "name": "EventId", "autoWidth": true },
+                { "data": "VesselName", "name": "VesselName", "autoWidth": true },
+                { "data": "VesselType", "name": "VesselType", "autoWidth": true },
+                { "data": "EventType", "name": "EventType", "autoWidth": true },
+                {
+                    "data": "DateofEvent", "name": "DateofEvent", "autoWidth": true,
+                    "render": function (data) {
+                        if (data === null) return "";
+                        var pattern = /Date\(([^)]+)\)/;//date format from server side
+                        var results = pattern.exec(data);
+                        var date = new Date(parseFloat(results[1]));
+                        var month = date.getMonth() + 1;
+                        return (month.toString().length > 1 ? month : "0" + month) + "-" + date.getDate() + "-" + date.getFullYear();
+                    }
+                },
+            ],
+            'columnDefs': [{
+                "targets": 0,
+                "orderable": false
+            }],
+            initComplete: function () {
+                var api = this.api();
+                var title = '';
+                // Setup - add a text input to each header cell
+                $('.filterhead', api.table().header()).each(function (index) {
+                    if (index > 0 && index !== 4) {
+                        title = $(this).text();
+                        $(this).html('<input type="text" placeholder="Search ' + title + '" class="column_search" />');
+                    }
+                    else if (index === 4) {
+                        title = $(this).text();
+                        $(this).html('<input type="text" readonly="true" id="datepicker" placeholder="Search ' + title + '" class="column_search" />');
+                        $("#datepicker").datepicker({
+                            changeMonth: true,
+                            dateFormat: 'mm-dd-yy',
+                            changeYear: true,
+                            showOtherMonths: true,
+                            showOn: "button",
+                            buttonImage: "/images/calendar.gif",
+                            buttonImageOnly: true,
+                            buttonText: "Select date",
+                            selectOtherMonths: true
+                        });
+                    }
+                });
+
+                api.columns.adjust();
+
+            }
+        });
+        $('table thead').on('keyup change', ".column_search", function () {
+
+            dataTable
+                .column($(this).parent().index())
+                .search(this.value)
+                .draw();
+        });
+        $(".filters >th").each(function (i) { if (i === 0) { $(this).text('') } });
+        $("#example_filter").hide();
+    });
+</script>
