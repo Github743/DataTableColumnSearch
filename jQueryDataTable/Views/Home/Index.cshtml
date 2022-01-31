@@ -1,4 +1,4 @@
-﻿@{
+@{
     ViewBag.Title = "Home Page";
 }
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
@@ -90,12 +90,39 @@
                         $(this).html('<input type="text" placeholder="Search ' + title + '" class="column_search" />');
                     }
                     else if (index === 4) {
+                        var _gotoToday = $.datepicker._gotoToday;
+
+                        // make a new _gotoToday function that does what the old one
+                        // did, but adds some extra feature
+                        $.datepicker._gotoToday = function (id) {
+                            _gotoToday.call(this, id);
+                            var target = $(id),
+                                inst = this._getInst(target[0]);
+
+                            //Added by Ryan Waterer on 1/30/2009 to have it return
+                            // the value when the person selects the "Today" button
+                            this._selectDate(id, this._formatDate(inst,
+                                inst.selectedDay, inst.drawMonth, inst.drawYear));
+                        }
                         title = $(this).text();
                         $(this).html('<input type="text" readonly="true" id="datepicker" placeholder="Search ' + title + '" class="column_search" />');
                         $("#datepicker").datepicker({
                             changeMonth: true,
                             dateFormat: 'mm-dd-yy',
                             changeYear: true,
+                            showButtonPanel: true,
+                            closeText: 'Clear', // Text to show for "close" button
+                            onClose: function () {
+                                var event = arguments.callee.caller.caller.arguments[0];
+                                // If "Clear" gets clicked, then really clear it
+                                if ($(event.delegateTarget).hasClass('ui-datepicker-close')) {
+                                    $(this).val('');
+                                    dataTable
+                                        .column($(this).parent().index())
+                                        .search(this.value)
+                                        .draw();
+                                }
+                            },
                             showOtherMonths: true,
                             showOn: "button",
                             buttonImage: "/images/calendar.gif",
