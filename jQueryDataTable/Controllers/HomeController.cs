@@ -16,7 +16,7 @@ namespace jQueryDataTable.Controllers
         }
 
         [HttpPost]
-        public ActionResult LoadData()
+        public ActionResult LoadData(DateTime? startDt = null, DateTime? endDt = null)
         {
 
             var draw = Request.Form.GetValues("draw").FirstOrDefault();
@@ -48,11 +48,6 @@ namespace jQueryDataTable.Controllers
                         from psn in per.DefaultIfEmpty()
                         join status in context.EventStatus on edt.EventStatusId equals status.EventStatusId into est
                         from estatus in est.DefaultIfEmpty()
-                        where vd.VesselName.Contains(search) || ldata.LookupDataName.Contains(search)
-                        || rc.CategoryName.Contains(search) || sev.EventSeverityName.Contains(search)
-                        || estatus.EventStatus.Contains(search)
-                        || psn.PersonnelName.Contains(search)
-                        || vd.BriefDescription.Contains(search)
                         select new
                         {
                             EventId = string.Concat(re.ReportableEventId, " ", re.CreatedDt.Value.Year),
@@ -65,7 +60,8 @@ namespace jQueryDataTable.Controllers
                             sev.EventSeverityName,
                             estatus.EventStatus,
                             Assignee = psn.PersonnelName,
-                            vd.BriefDescription
+                            vd.BriefDescription,
+                            re.CreatedDt
                         };
                 string vesselName = Request.Form.GetValues("columns[1][search][value]").FirstOrDefault().Trim();
                 string vesselType = Request.Form.GetValues("columns[2][search][value]").FirstOrDefault().Trim();
@@ -89,11 +85,17 @@ namespace jQueryDataTable.Controllers
                     DateTime dateTime = DateTime.ParseExact(eventDate, "MM-dd-yyyy", CultureInfo.InvariantCulture);
                     v = v.Where(a => a.DateofEvent == dateTime);
                 }
+                if (startDt != null && endDt != null)
+                {
+                    v = v.Where(a => a.CreatedDt >= startDt.Value).Where(a => a.CreatedDt <= endDt.Value);
+                }
                 //SORT
                 if (!(string.IsNullOrEmpty(sortColumn) && string.IsNullOrEmpty(sortColumnDir)))
                 {
                     v = v.OrderBy(sortColumn + " " + sortColumnDir);
                 }
+
+
 
                 recordsTotal = v.Count();
                 var data = v.Skip(skip).Take(pageSize).ToList();
